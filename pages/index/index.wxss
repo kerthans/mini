@@ -1,5 +1,9 @@
 /**index.wxss**/
 /* 头部透明的模板 */
+button:active {
+  opacity: 0.8;
+}
+
 .nav {
   height: 0;
 }

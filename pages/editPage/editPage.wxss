@@ -1,5 +1,9 @@
 /* pages/editPage/editPage.wxss */
 /* 页面容器 */
+button:active {
+  opacity: 0.8;
+}
+
 .container {
   background-color: #222831;
   padding: 40rpx;

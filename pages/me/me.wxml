@@ -70,35 +70,35 @@
     <image class="background-image" src="/images/me/cat_background.svg" mode="aspectFill"/>
         <view class="function-list">
         <!-- 第一个功能项：我的借物，点击后触发 goToBorrowPage 函数-->
-          <view class="function-item" bindtap="goToBorrowPage" style="background-color: #EEEEEE;">
+          <button class="function-item" bindtap="goToBorrowPage" style="width:80%; background-color: #EEEEEE;">
             <text> 我的借物</text>
             <!--箭头图标-->
             <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </view>
+          </button>
           <!-- 第二个功能项：我的项目，点击后触发 goToProjectPage 函数 -->
-          <view class="function-item" bindtap="goToProjectPage" style="background-color: #00ADB5;" >
+          <button class="function-item" bindtap="goToProjectPage" style="width:80%; background-color: #00ADB5;" >
             <text> 我的项目</text>
             <!--箭头图标-->
             <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </view>
+          </button>
           <!-- 第三个功能项：我的场地，点击后触发 goToVenuePage 函数 -->
-          <view class="function-item" bindtap="goToVenuePage" style="background-color: #EEEEEE;" >
+          <button class="function-item" bindtap="goToVenuePage" style="width:80%; background-color: #EEEEEE;" >
             <text> 我的场地</text>
             <!--箭头图标-->
             <image class="arrow-icon" src="/images/me/right_arrow_black.svg"  mode="aspectFill" />
-          </view>
+          </button>
           <!-- 第四个功能项：协会工作，仅当用户是协会成员时显示，点击后触发 goToWorkPage 函数 -->
-          <view class="function-item" bindtap="goToWorkPage" style="background-color: #00ADB5;" wx:if="{{isAssociationMember}}">
+          <button class="function-item" bindtap="goToWorkPage" style="width:80%; background-color: #00ADB5;" wx:if="{{isAssociationMember}}">
             <text> 协会工作</text>
             <!--箭头图标-->
             <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </view>
+          </button>
           <!-- 第五个功能项：荣誉墙，点击后触发 goToHonorWallPage 函数 -->
-          <view class="function-item" bindtap="goToHonorWallPage" style="background-color: #EEEEEE;">
+          <button class="function-item" bindtap="goToHonorWallPage" style="width:80%; background-color: #EEEEEE;">
             <text>荣誉墙</text>
             <!--箭头图标-->
             <image class="arrow-icon" src="/images/me/right_arrow_black.svg"  mode="aspectFill" />
-          </view>
+          </button>
         </view>
   </view>
   <!-- 底部的导航栏 -->

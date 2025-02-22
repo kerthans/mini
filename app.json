@@ -2,7 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/me/me",
-    "pages/editPage/editPage"
+    "pages/editPage/editPage",
+    "pages/club_work/club_work",
+    "pages/publicity_work_page/publicity_work_page",
+    "pages/base_management_work_page/base_management_work_page",
+    "pages/operation_maintenance_work_page/operation_maintenance_work_page",
+    "pages/project_work_page/project_work_page"
   ],
   "window": {
     "backgroundTextStyle": "light",

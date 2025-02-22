@@ -2,6 +2,10 @@ page{
   background-color: #222831;
 }
 
+button:active {
+  opacity: 0.8;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -176,7 +180,6 @@ page{
   margin-bottom: 47rpx;
   font-weight: bold;
   height: 97rpx;
-  width: 587rpx;
   padding-left: 36rpx;
   margin-left: 80rpx;
 }

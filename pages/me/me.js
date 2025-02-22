@@ -178,7 +178,7 @@ Page({
 
   // 页面跳转到协会工作页面的函数
   goToWorkPage: function () {
-    this.navigateToPage('/pages/work/work');
+    this.navigateToPage('/pages/club_work/club_work');
   },
 
   // 页面跳转到荣誉墙页面的函数
