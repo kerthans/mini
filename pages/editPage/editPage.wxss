@@ -1,0 +1,124 @@
+/* pages/editPage/editPage.wxss */
+/* 页面容器 */
+.container {
+  background-color: #222831;
+  padding: 40rpx;
+  min-height: 100vh;
+}
+/*白色框框上的圆形*/
+.circle {
+  width: 296rpx;  /* 圆形的宽度 */
+  height: 296rpx; /* 圆形的高度 */
+  border-radius: 50%; /* 使元素变成圆形 */
+  background-color: #FFFFFF; /* 圆形的颜色 */
+  margin-top:-90rpx;
+  margin-left:113rpx;
+}
+/*中间的白色框框部分*/
+.info-box{
+  width: 85%;
+  padding: 20rpx;
+  background-color: #FFFFFF;
+  border-radius: 20rpx;
+  text-align: left;
+  margin-top: 30rpx;
+}
+/* 头像部分 */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/*头像图片部分*/
+.avatar {
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  margin-top:-260rpx;
+  margin-left:-15rpx;
+}
+/*编辑头像图标部分*/
+.edit-icon {
+  width: 26rpx;
+  height: 26rpx;
+  margin-top:-10rpx;
+  margin-right: -110rpx;
+}
+
+/* 信息输入部分 */
+.info-section {
+  margin-bottom: 45rpx;
+}
+/*绿色文字部分*/
+.label {
+  color: #00ADB5;
+  font-size: 27rpx;
+  font-weight: bold;
+}
+/*真实姓名前的图标*/
+.me-icon{
+  width:31rpx;
+  height:31rpx;
+  margin-left:70rpx;
+  margin-bottom:-6rpx;
+  margin-right:10rpx;
+}
+/*联系方式前的图标*/
+.telephone-icon{
+  width:31rpx;
+  height:31rpx;
+  margin-bottom:-6rpx;
+  margin-right:10rpx;
+  margin-left:70rpx;
+}
+/*个人签名前的图标*/
+.stylegreen-icon{
+  width:31rpx;
+  height:31rpx;
+  margin-bottom:-6rpx;
+  margin-right:10rpx;
+  margin-left:70rpx;
+}
+/*前两个输入框的样式*/
+.input {
+  width: 80%;
+  padding: 0rpx 0rpx;
+  border-radius: 17rpx;
+  border: 1.7rpx solid #D8E0F0;
+  background-color: #FFFFFF;
+  margin-left:58rpx;
+  height:70rpx;
+  font-size:25rpx;
+  margin-top:12rpx;
+}
+/*最后一个输入框的样式*/
+textarea.input {
+  height: 210rpx;
+  font-size:25rpx;
+}
+/* 保存按钮 */
+.save-button button{
+  width: 75%;
+  padding: 24rpx;
+  background-color: #00ADB5;
+  color: #FFFFFF;
+  font-size:27rpx;
+  border: none;
+  border-radius: 16rpx;
+}
+/*保存成功的提示样式*/
+.success-message {
+  margin-top: 32rpx;
+  padding: 17rpx;
+  color: white;
+  border-radius: 8rpx;
+  text-align: center;
+}
+/*底部猫猫的样式*/
+.icon-in-bottom{
+  margin-left: -8rpx;
+  width: 439rpx;
+  height: 174rpx;
+  margin-bottom: -43rpx;
+}

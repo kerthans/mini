@@ -85,7 +85,28 @@ page {
   background-position: center center;
   background-size: 1em 2em;
 }
+.lxy-nav-bar__btn_edit {
+  width: 42rpx; /* 根据实际图标大小调整 */
+  height: 42rpx;
+  margin-left: 50rpx; /* 根据实际布局调整 */
+  margin-top:-2rpx;
+}
 
+.lxy-nav-bar__btn_message {
+  width: 42rpx; /* 根据实际图标大小调整 */
+  height: 42rpx;
+  margin-left: 50rpx; /* 根据实际布局调整 */
+  margin-top:-2rpx;
+}
+
+.lxy-nav-bar__btn_edit image {
+  width:100%;
+  height: 100%;
+}
+.lxy-nav-bar__btn_message image {
+  width:100%;
+  height: 100%;
+}
 .lxy-nav-bar__inner .lxy-nav-bar__left .lxy-nav-bar__btn_goback:active,
 .lxy-nav-bar__inner .lxy-nav-bar__left .lxy-nav-bar__btn_gohome:active {
   opacity: 0.5;

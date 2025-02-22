@@ -2,6 +2,18 @@
     <view class="lxy-nav-bar__placeholder {{ios ? 'ios' : 'android'}}" style="padding-top: {{navBarHeight+ navBarExtendHeight}}px;visibility: hidden;"></view>
     <view class="lxy-nav-bar__inner {{ios ? 'ios' : 'android'}}" style="{{navigationbarinnerStyle}}{{displayStyle}}">
         <view class='lxy-nav-bar__left' style="{{navBarLeft}}">
+            <!--添加编辑图标-->
+            <block wx:if="{{showEditIcon}}">
+              <view bindtap="onEditTap" class="lxy-nav-bar__button lxy-nav-bar__btn_edit">
+                    <image src="/images/me/edit.svg" mode="aspectFit" />
+                </view>
+            </block>
+            <!-- 添加信息图标 -->
+            <block wx:if="{{showMessageIcon}}">
+              <view bindtap="onMessageTap" class="lxy-nav-bar__button lxy-nav-bar__btn_message">
+                    <image src="/images/index/message.svg" mode="aspectFit" />
+                </view>
+            </block>
             <block wx:if="{{back&&!home}}">
                 <view bindtap="back" class="lxy-nav-bar__button lxy-nav-bar__btn_goback {{iconTheme}}"></view>
             </block>
