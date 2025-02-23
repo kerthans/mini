@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/editPage/editPage",
+          "pathName": "pages/editPage/editPage",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/activity_submit/activity_submit",
           "pathName": "pages/activity_submit/activity_submit",
           "query": "",
