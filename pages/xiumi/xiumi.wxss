@@ -3,18 +3,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content:space-between;
+  min-height: 100vh;
   width: 100vw;
   background-color: #222831;
+  justify-content: space-between; 
+  position: relative;
 }
 
 /*用户界面*/
 .form-item {/*表单的容器*/
   width: 640rpx;
-  height: 931.3rpx;
+  min-height: 931.3rpx;
   margin-bottom: 34.88rpx;
-  border-radius: 20px;
+  border-radius: 35rpx;
   background-color: #ffffff;
   position: relative;
    left: 0rpx; 
@@ -24,31 +26,28 @@
 .input-box {/*秀米链接提交的表单*/
   height: 726.32rpx;
   border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 12px;
+  border-radius: 24.5rpx;
+  font-size: 30rpx;
   color: #333;
   background-color: #e5e5e5;
-  color: #7f8794;
   width: 550rpx; 
   display: block; 
   box-sizing: border-box;
    left: 44rpx; 
    top: 44rpx;
-  padding-left: 61.04rpx;
-  padding-top: 34.88rpx;
+  padding:35rpx 40rpx 35rpx 40rpx ;
 }
 
 .submit-btn {/*提交按钮*/
   height: 73.25rpx;
-line-height: 73.25rpx;
+  line-height: 45rpx;
   background-color: #00ADB5;
   color: white;
-  font-size: 17px;
-  border: none;
-  border-radius: 25px;
+  font-size: 30rpx;
+  border-radius: 24.5rpx;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-   left: 187rpx;
+  left: 187rpx;
   top: 90rpx;
   width: 186.61rpx;
   display: block;
@@ -58,7 +57,7 @@ line-height: 73.25rpx;
 .bottom-image {/*背景图片的小猫*/
   width: 440.53rpx;
   height: 174.4rpx;
-  position: fixed;    
+  position: absolute;    
   bottom: 0;                   
   left: 50%;                  
   transform: translateX(-50%);

@@ -1,41 +1,69 @@
 <!-- pages/task/task.wxml -->
 <view class="container">
-  <navBar title='发布任务' background='#222831' color='#fff' back="{{true}}" home="{{true}}" iconTheme='white' bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+  <navBar 
+    title='发布任务' 
+    background='#222831' 
+    color='#fff' 
+    back="{{true}}" 
+    home="{{true}}" 
+    iconTheme='white' 
+    bindback="handlerGobackClick" 
+    bindhome="handlerGohomeClick">
+  </navBar>
 
-  <view class="form-item">
-    <text class="text-box-a" >任务名称</text>
-    <input  class="input-box-a" placeholder="任务名称" bindinput="onInput" data-field="taskName" />
-
-    <text class="text-box-b">负责人</text>
-    <input class="input-box-b" placeholder="负责人" bindinput="onInput" data-field="responsible" />
-
-    <text class="text-box-c">任务内容</text>
-    <textarea  class="textarea-box" placeholder="活动简介"  bindinput="onInput" data-field="taskContent" />
-
-
-
-    <view class="picker-group" >
-      <text class="text-box-d">任务截止时间</text>
-
-      <picker mode="selector" range="{{years}}" bindchange="onYearChange" class="picker-year-model">
-        <view class="picker-item-year">{{selectedYear || '年份'}}</view>
+  <view class="form-container">
+    <text class="form-label">任务名称</text>
+    <input class="input-field" placeholder="请输入任务名称" data-field="taskName"/>
+    
+    <text class="form-label">负责人</text>
+    <input class="input-field" placeholder="请输入负责人" data-field="responsible"/>
+    
+    <text class="form-label">任务内容</text>
+    <textarea class="input-field textarea-field" placeholder="请输入任务内容" data-field="taskContent"/>
+    
+    <text class="form-label">任务截止时间</text>
+    <view class="time-picker-group">
+      <picker 
+        mode="selector" 
+        range="{{years}}" 
+        bindchange="onYearChange"
+        data-type="deadline">  <!-- 新增 -->
+        <view>{{selectedYear || '年份'}}</view>
       </picker>
-      <picker mode="selector" range="{{months}}" bindchange="onMonthChange">
-        <view class="picker-item-month">{{selectedMonth || '月份'}}</view>
+      <picker 
+        mode="selector" 
+        range="{{months}}" 
+        bindchange="onMonthChange"
+        data-type="deadline">  <!-- 新增 -->
+        <view>{{selectedMonth || '月份'}}</view>
       </picker>
-      <picker mode="selector" range="{{days}}" bindchange="onDayChange">
-        <view class="picker-item-day">{{selectedDay || '日'}}</view>
+      <picker 
+        mode="selector" 
+        range="{{days}}" 
+        bindchange="onDayChange"
+        data-type="deadline">  <!-- 新增 -->
+        <view>{{selectedDay || '日'}}</view>
       </picker>
-      <picker mode="selector" range="{{hours}}" bindchange="onHourChange">
-        <view class="picker-item-hour" >{{selectedHour || '小时'}}</view>
+      <picker 
+        mode="selector" 
+        range="{{hours}}" 
+        bindchange="onHourChange"
+        data-type="deadline">  <!-- 新增 -->
+        <view>{{selectedHour || '时'}}</view>
       </picker>
-      <picker mode="selector" range="{{minutes}}" bindchange="onMinuteChange">
-        <view class="picker-item-minute" >{{selectedMinute || '分钟'}}</view>
+      <picker 
+        mode="selector" 
+        range="{{minutes}}" 
+        bindchange="onMinuteChange"
+        data-type="deadline">  <!-- 新增 -->
+        <view>{{selectedMinute || '分'}}</view>
       </picker>
     </view>
+
+
   </view>
 
-  <button class="submit-btn" bindtap="onSubmit"  >提交</button>
+  <button class="submit-btn" bindtap="onSubmit" style="width: 50%;">提交任务</button>
 
-  <view class="bottom-image" mode="widthFix"  style="position: relative; left: 221rpx; top: 34rpx"></view>
+  <image class="decorative-image" src="/images/activity/white_cat.svg"/>
 </view>

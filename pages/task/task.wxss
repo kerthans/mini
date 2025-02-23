@@ -1,225 +1,127 @@
 /* pages/task/task.wxss */
-.container {/*页面整体的设置*/
-  padding: 34.88rpx;
+/* 基础容器样式 */
+.container {
   background-color: #222831;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  padding: 30rpx;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/*用户界面*/
-.form-item {/*表单的整体设计*/
-  width: 640rpx;
-  position: relative;
-  left: 0rpx; 
-  top: -46rpx;
-    height: 935rpx;
-     display: block;
-      box-sizing: border-box;
-  background-color: #00adb5;
-  color: #ffffff;
-  border-radius: 16.94px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  
+/* 表单容器 */
+.form-container {
+  background: #00adb5;
+  border-radius: 32rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.1);
+  width: 95%;
 }
 
-.input-box-a {/*任务名称输入框*/
-  height: 91.31rpx;
-  border: 1px solid #e5e5e5;
-  border-radius: 20px;
-  font-size: 11px;
-  background-color: #e5e5e5;
-  padding-left:26.16px ;
-  position: relative;
-   left: 30rpx;
-   top: 35rpx;
-   width: 580rpx;
-    display: block; 
-    box-sizing: border-box;
+/* 统一输入框样式 */
+.input-field {
+  height: 90rpx;
+  background: #e5e5e5;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  padding: 0 28rpx;
+  margin-bottom: 30rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s;
 }
 
-.input-box-b {/*负责人输入框*/
-  height: 91.31rpx;
-  border: 1px solid #e5e5e5;
-  border-radius: 20px;
-  font-size: 11px;
-  background-color: #e5e5e5;
-  padding-left:26.16px ;
-  position: relative; 
-  left: 30rpx; 
-  top: 81rpx;
-   width: 576rpx; 
-   display: block; 
-   box-sizing: border-box; 
+.input-field:focus {
+  border-color: #222831;
 }
 
-
-.textarea-box {/*任务内容的输入框*/
-  border: 1px solid #e5e5e5;
-  border-radius: 20px;
-  font-size: 11px;
-  background-color: #e5e5e5;
-  padding-left: 26.16rpx;
-  padding-top: 17.44rpx;
-  position: relative;
-   left: 30rpx; 
-   top: 128rpx;
-    width: 573rpx; 
-    display: block; 
-    box-sizing: border-box; 
-    height: 194rpx;
+/* 文本域样式 */
+.textarea-field {
+  height: 200rpx;
+  padding: 20rpx 28rpx;
+  line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box; /* 新增 */
 }
 
-.picker-group {/*选择器组合*/
-  display:grid;
-  width: 508.11rpx;
-  height: 226.41rpx;
+/* 选择器组布局 */
+.time-picker-group {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  font-size: 11px;
-  position: relative;
-   left: 30rpx;
-    top: 144rpx;
+  gap: 20rpx;
+  margin: 40rpx 0;
 }
 
-.picker-item-year {/*年份选择器*/
-  
-  width: 196.15rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  left: 44rpx; 
-  top: 41rpx;
+.time-picker-group picker {
+  margin: 10rpx;
+  background: #e5e5e5;
+  border-radius: 24rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.picker-item-month {/*月份选择器*/
-  position: relative;
-   left: -121rpx;
-    top: 72rpx;
-  width: 119.74rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
+/* 统一选择器样式 */
+.time-picker {
+  background: #e5e5e5;
+  border-radius: 25rpx;
+  height: 70rpx;
+  font-size: 28rpx;
   color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-day{/*日期选择器*/
-  position: relative;
-   left: 377rpx;
-    top: -43rpx;
-  width: 119.74rpx;
-  height: 66.67rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-hour{/*小时选择器*/
-  width: 220.91rpx;
-  height: 66.67rpx;
-line-height: 66.67rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -105rpx;
-    top: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
 }
 
-.picker-item-minute{/*分钟选择器*/
-  width: 220.91rpx;
-  height: 66.67rpx;
-line-height: 66.67rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -84rpx; 
-   top: 44rpx;
+.time-picker.active {
+  background: #d5d5d5;
 }
 
-.picker-year-model{/*年份选择器的容器*/
-  position: relative;
-   left: -149rpx;
-    top: 30rpx; 
+/* 特殊定位选择器 */
+.year-picker {
+  grid-column: span 2;
 }
 
-.submit-btn {/*提交按钮*/
-  width: 226.72rpx;
-  height: 87.2rpx;
-  line-height: 87.2rpx;
-  background-color: #00ADB5;
+.hour-picker,
+.minute-picker {
+  grid-column: span 1;
+}
+
+/* 标签文本样式 */
+.form-label {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+/* 提交按钮样式 */
+.submit-btn {
+  background: #00adb5;
   color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 4;
-  position: relative; 
-  left: -1rpx; 
-  top: -60rpx;
+  border-radius: 45rpx;
+  height: 90rpx;
+  font-size: 32rpx;
+  margin-top: 60rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+  line-height: 60rpx;
 }
 
-.text-box-a{/*任务名称文本*/
-   height: 24.15rpx;
-   width: 84.11rpx;
-   font-size:12px;
-   font-weight: bolder;
-   position: relative; 
-   left: 30rpx; 
-   top: 18rpx;
+.submit-btn:active {
+  transform: scale(0.98);
 }
 
-.text-box-b{/*负责人文本*/
-  height: 24.15rpx;
-  width: 84.11rpx;
-  font-size:12px;
-  font-weight: bolder;
+/* 装饰图片样式 */
+.decorative-image {
+  width: 440rpx;
+  height: 174rpx;
+  display: block;
   position: relative;
-  left: 30rpx; 
-  top: 62rpx;
-}
-
-.text-box-c{/*任务内容文本*/
-  height: 24.15rpx;
-  width: 84.11rpx;
-  font-size:12px;
-  font-weight: bolder;
-  position: relative;
-   left: 30rpx; 
-   top: 105rpx;
-}
-
-.text-box-d{/*任务截止时间文本*/
-  height: 60rpx;
-  width: 150.18rpx;
-  top:-38rpx;
-  font-size:12px;
-  font-weight: bolder;
-}
-.bottom-image {/*背景的小猫*/
-  width: 440.53rpx;
-  height: 174.4rpx;
-  position: fixed;    
-  bottom: 0;                   
-  left: 50%;                  
-  transform: translateX(-50%);
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='252.60009765625' height='100' viewBox='0 0 252.60009765625 100' fill='none'%3E %3Cpath d='M196 73.5L204 60L212.5 73.5L228.5 73.5L237 60L244 73.5L244 100L196 100L0 100L7.5 88.5L41.5 88.5L56 73.5L196 73.5Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='212' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='228' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Cpath d='M86 100L72.5 89L77.5 89L91 100L86 100Z' fill='%2300ADB5' %3E %3C/path%3E %3Cpath d='M243 85L252.5 82L252.5 85L243 88L243 85Z' fill='%23FFFFFF' %3E %3C/path%3E %3Cpath d='M243 94L252.6 97L252.6 94L243 91L243 94Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='196' y='35' width='16' height='13' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='154' y='0' width='33' height='22' fill='%2300ADB5' %3E %3C/rect%3E %3C/svg%3E ");
-  background-size: contain; /* 使图标自适应容器大小 */
-  background-repeat: no-repeat; /* 防止图标重复 */
-  background-position: center; /* 图标居中 */
+  bottom: 0;
+  margin-top: 50rpx;
   z-index: 99;
-
 }

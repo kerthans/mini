@@ -5,6 +5,7 @@
   min-height: 100vh;
   width: 100vw;
   background-color: #222831;
+  position: relative;
 }
 
 .header {/*表头的整体*/
@@ -19,7 +20,7 @@
   border: 2px solid #a6a6a6;
   border-radius: 15px;
   width: 605rpx;
-  height: 920rpx;
+  height: 870rpx;
   overflow: hidden;
   position: relative;
   top:-168.24rpx;
@@ -90,7 +91,7 @@
   z-index: 4;
   position: relative; 
   left: 266rpx; 
-  top: -295rpx;}
+  top: -250rpx;}
 
 .button-container {/*提交和取消按钮的容器*/
   display: flex;
@@ -108,7 +109,7 @@
   color:#ffffff;
   width: 186.61rpx;
   height: 73.25rpx;
-  line-height: 69.76rpx;
+  line-height: 47rpx;
   border-radius: 21px;
  z-index: 4;
  position: relative;
@@ -121,7 +122,7 @@
   color:#ffffff;
   width: 186.6rpx;
   height: 73.25rpx;
-  line-height: 69.76rpx;
+  line-height: 47rpx;
   border-radius: 21px;
  z-index: 4;
  position: relative;
@@ -155,8 +156,8 @@
 .bottom-image {/*背景图片的小猫*/
   width: 440.53rpx;
   height: 174.4rpx;
-  position: fixed;    
-  bottom: 0;                   
+  position: absolute;    
+  bottom: 0rpx;                   
   left: 50%;                  
   transform: translateX(-50%);
 

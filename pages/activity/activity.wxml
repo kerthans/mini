@@ -1,97 +1,201 @@
 <!-- pages/activity/activity.wxml -->
-<view class="bottom-image" mode="widthFix" ></view>
 <view class="container">
-  <navBar title='活动宣传发布' background='#222831' color='#fff' back="{{true}}" home="{{true}}" iconTheme='white' bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
+  <navBar 
+    title='活动宣传发布' 
+    background='#222831' 
+    color='#fff' 
+    back="{{true}}" 
+    home="{{true}}" 
+    iconTheme='white'
+    bindback="handlerGobackClick" 
+    bindhome="handlerGohomeClick">
+  </navBar>
 
-  <!-- <view class="top-nav" >
-    <view class="title">活动宣传发布</view>
-      <image class="edit-icon" bindtap="ReturnLastPage" />
-    </view> -->
+  <view class="form-container">
+    <view class="form-header">活动详情</view>
 
-   <view class="form-item" >
-    <view class="form-begin" >活动详情</view>
-    <text class="text-a">活动名称</text>  
-    <input class="input-box-a"  placeholder="活动名称" bindinput="onInput" data-field="event_name" />
-
-    <text class="text-b">海报</text>
-    <view class="upload-box" bindtap="onUploadPoster" >
-    <view class="icon" ><view class="icon-cloud" ></view></view>
-    <text class="text-i">在这里上传</text>
+    <!-- 活动名称 -->
+    <view class="form-item">
+      <text class="form-label">活动名称</text>
+      <input class="form-input" placeholder="请输入活动名称" data-field="event_name"/>
     </view>
 
-    <text class="text-c">活动简介</text>
-    <textarea class="textarea-box"  placeholder="活动简介" bindinput="onInput" data-field="escription" />
-
-    <text class="text-d">举办地点</text>
-    <input  class="input-box-b" placeholder="举办地点" bindinput="onInput" data-field="location" />
-
-    <text class="text-e">二课链接</text>
-    <input  class="input-box-c" placeholder="二课链接" bindinput="onInput" data-field="link" />
-
-   
-    <view class="picker-group-a" >
-      <text class="text-f">举办时间</text>
-      <picker mode="selector" range="{{years}}" bindchange="onYearChange" data-type="startTime" >
-        <view class="picker-item-year">{{startTimeYear || '年份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{months}}" bindchange="onMonthChange" data-type="startTime">
-        <view class="picker-item-month"  >{{startTimeMonth || '月份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{days}}" bindchange="onDayChange" data-type="startTime">
-        <view class="picker-item-day">{{startTimeDay || '日期'}}</view>
-      </picker>
-      <picker mode="selector" range="{{hours}}" bindchange="onHourChange" data-type="startTime">
-        <view class="picker-item-hour" >{{startTimeHour || '小时'}}</view>
-      </picker>
-      <picker mode="selector" range="{{minutes}}" bindchange="onMinuteChange" data-type="startTime">
-        <view class="picker-item-minute">{{startTimeMinute || '分钟'}}</view>
-      </picker>
+    <!-- 海报上传 -->
+    <view class="form-item">
+      <text class="form-label">海报</text>
+      <view class="upload-box" bindtap="onUploadPoster">
+        <image class="upload-icon" src="/images/activity/upload.svg"></image>
+        <text>点击上传海报</text>
+      </view>
     </view>
 
-   
-    <view class="picker-group-b">
-      <text class="text-g" >至</text>
-      <picker mode="selector" range="{{years}}" bindchange="onYearChange" data-type="endTime">
-        <view class="picker-item-year">{{endTimeYear || '年份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{months}}" bindchange="onMonthChange" data-type="endTime">
-        <view class="picker-item-month">{{endTimeMonth || '月份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{days}}" bindchange="onDayChange" data-type="endTime">
-        <view class="picker-item-day" >{{endTimeDay || '日期'}}</view>
-      </picker>
-      <picker mode="selector" range="{{hours}}" bindchange="onHourChange" data-type="endTime">
-        <view class="picker-item-hour">{{endTimeHour || '小时'}}</view>
-      </picker>
-      <picker mode="selector" range="{{minutes}}" bindchange="onMinuteChange" data-type="endTime">
-        <view class="picker-item-minute">{{endTimeMinute || '分钟'}}</view>
-      </picker>
+    <!-- 活动简介 -->
+    <view class="form-item">
+      <text class="form-label">活动简介</text>
+      <textarea class="form-input textarea" placeholder="请输入活动简介" data-field="description"/>
     </view>
 
-  
-    <view class="picker-group-c">
-      <text class="text-h">报名截止时间</text>
-      <picker mode="selector" range="{{years}}" bindchange="onYearChange" class="picker-year-model" data-type="deadline">
-        <view class="picker-item-year-a">{{deadlineYear || '年份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{months}}" bindchange="onMonthChange" data-type="deadline">
-        <view class="picker-item-month-a">{{deadlineMonth || '月份'}}</view>
-      </picker>
-      <picker mode="selector" range="{{days}}" bindchange="onDayChange" data-type="deadline">
-        <view class="picker-item-day-a" >{{deadlineDay || '日期'}}</view>
-      </picker>
-      <picker mode="selector" range="{{hours}}" bindchange="onHourChange" data-type="deadline">
-        <view class="picker-item-hour-a">{{deadlineHour || '小时'}}</view>
-      </picker>
-      <picker mode="selector" range="{{minutes}}" bindchange="onMinuteChange" data-type="deadline">
-        <view class="picker-item-minute-a">{{deadlineMinute || '分钟'}}</view>
-      </picker>
+    <!-- 举办地点 -->
+    <view class="form-item">
+      <text class="form-label">举办地点</text>
+      <input class="form-input" placeholder="请输入举办地点" data-field="location"/>
+    </view>
+
+    <!-- 二课链接 -->
+    <view class="form-item">
+      <text class="form-label">二课链接</text>
+      <input class="form-input" placeholder="请输入二课链接" data-field="link"/>
+    </view>
+
+    <!-- 时间选择器组 -->
+    <!-- 举办时间 -->
+    <view class="time-picker-group">
+      <text class="form-label">举办时间</text>
+      <view class="picker-row">
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{years}}" 
+          bindchange="onYearChange" 
+          data-type="startTime">
+          <view>{{formattedStartTime.year}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{months}}" 
+          bindchange="onMonthChange" 
+          data-type="startTime">
+          <view>{{formattedStartTime.month}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{days}}"
+          bindchange="onDayChange"  
+          data-type="startTime">
+          <view>{{formattedStartTime.day}}</view>
+        </picker>
+      </view>
+      <view class="picker-row">
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{hours}}" 
+          bindchange="onHourChange"  
+          data-type="startTime">
+          <view>{{formattedStartTime.hour}}</view>
+        </picker>
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{minutes}}" 
+          bindchange="onMinuteChange"  
+          data-type="startTime">
+          <view>{{formattedStartTime.minute}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 结束时间 -->
+    <view class="time-picker-group">
+      <text class="form-label">至</text>
+      <view class="picker-row">
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{years}}" 
+          bindchange="onYearChange" 
+          data-type="endTime">
+          <view>{{formattedEndTime.year}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{months}}" 
+          bindchange="onMonthChange" 
+          data-type="endTime">
+          <view>{{formattedEndTime.month}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{days}}"
+          bindchange="onDayChange" 
+          data-type="endTime">
+          <view>{{formattedEndTime.day}}</view>
+        </picker>
+      </view>
+      <view class="picker-row">
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{hours}}" 
+          bindchange="onHourChange" 
+          data-type="endTime">
+          <view>{{formattedEndTime.hour}}</view>
+        </picker>
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{minutes}}" 
+          bindchange="onMinuteChange" 
+          data-type="endTime">
+          <view>{{formattedEndTime.minute}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 报名截止时间 -->
+    <view class="time-picker-group">
+      <text class="form-label">报名截止时间</text>
+      <view class="picker-row">
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{years}}" 
+          bindchange="onYearChange" 
+          data-type="deadline">
+          <view>{{formattedDeadline.year}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{months}}" 
+          bindchange="onMonthChange" 
+          data-type="deadline">
+          <view>{{formattedDeadline.month}}</view>
+        </picker>
+        <picker 
+          class="date-picker" 
+          mode="selector" 
+          range="{{days}}"
+          bindchange="onDayChange" 
+          data-type="deadline">
+          <view>{{formattedDeadline.day}}</view>
+        </picker>
+      </view>
+      <view class="picker-row">
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{hours}}" 
+          bindchange="onHourChange" 
+          data-type="deadline">
+          <view>{{formattedDeadline.hour}}</view>
+        </picker>
+        <picker 
+          class="time-picker" 
+          mode="selector" 
+          range="{{minutes}}" 
+          bindchange="onMinuteChange" 
+          data-type="deadline">
+          <view>{{formattedDeadline.minute}}</view>
+        </picker>
+      </view>
     </view>
   </view>
 
-
-
-  <button class="submit-btn" bindtap="onSubmit" >活动发布</button>
-
-
+  <button class="submit-btn" bindtap="onSubmit">立即发布</button>
+  <image class="bottom-image" src="/images/activity/white_cat.svg" mode="widthFix"></image>
 </view>

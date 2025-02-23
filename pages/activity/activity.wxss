@@ -1,468 +1,139 @@
 /* pages/activity/activity.wxss */
-.container {/*主页面设置*/
-  padding: 34.88rpx;
-  background-color: #222831;
-  height: 150vh;
- width: 100vw;
+.container {
   display: flex;
   flex-direction: column;
-}
-
-.top-nav {/*导航栏设置*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* 宽度占满父容器 */
-  height: 139.52rpx;
+  background: #222831;
+  min-height: 100vh;
+  padding: 30rpx;
+  padding-bottom: 0;
+  justify-content: space-between; 
   position: relative;
-   left: 0rpx;
-    top: 23rpx;
 }
 
-.edit-icon{/*导航栏左侧小箭头*/
-  left:-410rpx;
-  margin-top: 55.81px;
-  width:53rpx;
-  height:28.368px;
-  position: relative; 
-   top: -43rpx;
-  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8'?%3E%3Csvg width='24' height='24' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31 36L19 24L31 12' stroke='%23000000' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+/* 表单容器 */
+.form-container {
+  flex:1;
+  background: #fff;
+  border-radius: 35rpx;
+  padding: 40rpx;
+  margin-top: 30rpx;
+  width: 95%;
 }
 
-.title{/*导航栏标题*/
-  display: flex;
-  margin-top:65rpx;
-  margin-right:-53rpx;
-  font-size:20px;
-  color: #ffffff;
-  font-weight: bolder;
-  position: relative;
-  top:10.46rpx;
-position: relative; 
-left: 0rpx;
- top: -35rpx;
-}
-
-
-.form-begin {/*表头文字*/
- font-size:18px; 
- text-align: center;
- color:#00Adb5;
- font-weight: bolder;
-}
-.form-item {/*表单整体设置*/
-  width:640.05rpx;
-  height: 1800rpx;
-  font-size: 11px;
-  margin-bottom: 34.88rpx;
-  padding: 17.44rpx;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color:#00Adb5;
-position: relative; 
-left: 0rpx; 
-top: -303rpx; 
-height: 1480rpx; 
-display: block; 
-box-sizing: border-box;
-}
-
-.text-a{/*活动名称的参数*/
-  color: #00ADB5; 
-  position: relative;
-   left: 30rpx;
-    top: 10.464rpx; 
-   font-weight: bolder;
-}
-
-.text-b{
-  /*海报文本的参数*/
-  color: #00ADB5; 
-  position: relative; 
-  left: 30rpx; 
-  top: 37rpx ; 
-  font-weight: bolder;
-}
-
-.text-c{/*活动简介文本的参数*/
-  color: #00ADB5; 
-  position: relative; 
-  left: 30rpx;
-  top: 70rpx; 
-  font-weight: bolder;
-}
-
-.text-d{/*举办地点文本的参数*/
+.form-header {
+  font-size: 36rpx;
   color: #00ADB5;
-  position: relative;
-  left: 30rpx;
-  top: 91rpx;
-  font-weight: bolder;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
 }
 
-.text-e{/*二课连接文本*/
+/* 表单项通用样式 */
+.form-item {
+  margin-bottom: 40rpx;
+}
+
+.form-label {
+  display: block;
   color: #00ADB5;
-   position: relative;
-    left: 30rpx; 
-    top: 123rpx; 
-    font-weight: bolder;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold;
 }
 
-.text-f{/*举办时间文本*/
-  width: 115.63rpx;
-  height: 41.87rpx;
-  color: #00ADB5;
-  font-weight: bolder;
-  left: 0rpx;
-  position: relative;
+/* 文本域特殊处理 */
+.textarea {
+  height: 160rpx !important;
+  padding: 20rpx;
+  line-height: 1.4;
 }
 
-.text-g{/*至 文本的参数*/
-  width: 115.63rpx;
-  height: 41.87rpx;
-  color: #00ADB5; 
-  font-weight: bolder;
-  left:0rpx;
-  position: relative;
-}
-
-.text-h{/*报名截止时间文本的参数*/
-width: 140rpx; 
-height: 50rpx;
- color: #00ADB5; 
- display: block;
+/* 输入框样式 */
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  background: #F5F5F5;
+  border: 2rpx solid #E0E0E0;
+  border-radius: 24.5rpx;
+  padding: 20rpx 20rpx;
+  font-size: 28rpx;
   box-sizing: border-box;
-   font-weight: bolder;
-left: 0rpx;
-position: relative;
 }
 
-.text-i{/*“在这里上传”文本参数*/
-  position: relative; 
-  left: -35rpx; 
-  top: 0rpx;
-}
-
-.input-box-a {/*活动名称输入框*/
-  
-  height: 83.71rpx;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  padding: 0 17.44rpx;
-  font-size: 12px;
-  color: #7d8592;
-  background-color:#e5e5e5;
-  position: relative; 
-   top: 27rpx; 
-   width: 599rpx; 
-   display: block; 
-   box-sizing: border-box;
-   width: 567rpx; 
-  left: 21rpx;
-}
-
-.input-box-b {/*举办地点输入框*/
-  width: 537rpx; 
-  left: 21rpx;
-  height: 83.71rpx;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  padding: 0 17.44rpx;
-  font-size: 12px;
-  color: #7d8592;
-  background-color:#e5e5e5;
-  position: relative;
-   top: 114rpx;
-     display: block;
-      box-sizing: border-box；
-}
-
-.input-box-c{/*二课连接输入框*/
-  width: 567rpx; 
-  left: 21rpx;
-  height: 83.712rpx;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  padding: 0 17.44rpx;
-  font-size: 12px;
-  color: #7d8592;
-  background-color:#e5e5e5;
-  position: relative;
-
-    top: 138rpx; 
-    display: block; 
-    box-sizing: border-box;
-}
-.textarea-box {/*活动简介输入框参数*/
-  padding-top:15rpx ;
-  padding-left:15rpx ;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  font-size: 12px;
-  color: #7d8592;
-  background-color: #e5e5e5;
-  position: relative; 
-
-  top: 81rpx; 
-  height: 83.71rpx;
-   display: block; 
-   box-sizing: border-box; 
-   width: 567rpx; 
-  left: 21rpx;
-}
-
-.upload-box {/*海报上传框*/
+/* 上传区域 */
+.upload-box {
   display: flex;
   align-items: center;
+  height: 80rpx;
+  background: #F5F5F5;
+  border: 2rpx dashed #00ADB5;
+  border-radius: 24.5rpx;
+  flex-direction: row;
   justify-content: center;
-  width: 592rpx;
-  height: 83.712rpx;
-  border: 1px dashed #ccc;
-  border-radius: 14px;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  font-size: 12px;
-  cursor: pointer;
-position: relative; 
- 
-top: 51rpx; 
-width: 567rpx; 
-left: 21rpx; 
-display: flex; 
-box-sizing: border-box;
+}
+
+.upload-box text {
+  margin-left: 20rpx;
+  color: #666;
 }
 
 .upload-icon {
-  width: 52.32rpx;
-  height: 52.32rpx;
-  margin-right: 17.44px;
-}
-
-.picker-group-a {/*举办时间的选择器组合*/
-  display:grid;
-  width: 503.77rpx;
-  height: 202.3rpx;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative; 
-  left: 30rpx;
-   top: 145rpx;
+  width: 60rpx;
+  height: 60rpx;
   
 }
 
-.picker-group-b {/*至的选择器组合*/
-  display:grid;
-  width: 503.77rpx;
-  height: 202.3rpx;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
-   left: 30rpx; 
-   top: 154rpx;
+/* 时间选择器 */
+.time-picker-group .form-label{
+  margin: 40rpx 0;
+  border-radius: 24.5rpx;
 }
 
-.picker-group-c {/*报名截止时间的选择器组合*/
-  display:grid;
-  width: 503.77rpx;
-  height: 202.3rpx;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
-   left: 30rpx; 
-   top: 170rpx;
-}
-.picker-item-year {/*年份选择器*/
-  
-  width: 196.15rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  left: -75rpx; 
-  top: 56rpx;
+.picker-row {
+  display: flex;
+  gap: 20rpx;
+  margin: 20rpx 0;
 }
 
-.picker-item-month {/*月份选择器*/
-  position: relative;
-   left: -95rpx; 
-   top: 56rpx;
-  width: 119.74rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-day{/*日期选择器*/
-  position: relative;
-   left: 377rpx; 
-   top: -46rpx;
-  width: 119.74rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-hour {/*小时选择器*/
-  width: 220.91rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -77rpx;
-    top: 34rpx;
+.date-picker, .time-picker {
+  flex: 1;
+  height: 80rpx;
+  background: #F5F5F5;
+  border-radius: 24.5rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
 }
 
-.picker-item-minute{/*分钟选择器*/
-  width: 220.91rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -58rpx;
-    top: 34rpx;
+/* 至 的样式特殊处理 */
+.time-picker-group:nth-child(2) .form-label {
+  color: #666;
+  font-weight: normal;
 }
 
-.picker-item-year-a {/*报名截止时间年份选择器*/
-  
-  width: 213.59rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; 
-  left: 55rpx; 
-  top: 25rpx;
+/* 提交按钮 */
+.submit-btn {
+  flex:2;
+  background: #00ADB5;
+  color: #fff;
+  border-radius: 50rpx;
+  margin: 60rpx auto;
+  width: 70%;
+  height: 90rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
 }
 
-.picker-item-month-a {/*报名截止时间月份选择器*/
-  position: relative; 
-  left: -96rpx;top: 56rpx;
-  width: 119.74rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-day-a{/*报名截止时间日期选择器*/
-  position: relative; 
-  left: 386rpx;
-   top: -46rpx;
-  width: 119.74rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.picker-item-hour-a {/*报名截止时间小时选择器*/
-  width: 220.91rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -93rpx;
-    top: 34rpx;
-}
-
-.picker-item-minute-a{/*报名截止时间分钟选择器*/
-  width: 220.91rpx;
-  height: 66.27rpx;
-line-height: 66.27rpx;
-  text-align: center;
-  background-color: #e5e5e5;
-  color: #7d8592;
-  border-radius: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-   left: -77rpx; 
-   top: 34rpx;
-}
-
-.picker-year-model{/*报名截止时间年份选择器的容器*/
-  position: relative;
-   left: -149rpx;
-    top: 30rpx; 
-}
-
-.submit-btn {/*提交按钮*/
-  width: 226.72rpx;
-  height: 87.2rpx;
-  line-height: 87.2rpx;
-  background-color: #00ADB5;
-  color: white;
-  font-size: 14px;
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 4;
-  
-   display: block; 
-   box-sizing: border-box; 
-   left: 0rpx; 
-   top: -615rpx;
-    position: relative;
-}
-
-.icon{/*上传图标的容器*/
-  width: 68rpx;
-  height: 68rpx;
-  position: relative;
-  left: -154.4rpx;
-}
-
-.icon-cloud{/*上传图标*/
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='39' height='39' viewBox='0 0 39 39' fill='none'%3E %3Cpath fill-rule='evenodd' fill='%237D8592' d='M28.72 11.445C27.3875 7.57082 23.6941 4.875 19.5 4.875C15.3075 4.875 11.6141 7.57082 10.28 11.445C6.31663 11.9828 3.25 15.3872 3.25 19.495C3.25 21.4793 3.96863 23.3914 5.28 24.875C5.87313 25.5462 6.90725 25.6198 7.58 25.025C8.25275 24.4286 8.31313 23.3993 7.72 22.725C6.9335 21.8378 6.5 20.6845 6.5 19.495C6.5 16.8073 8.68225 14.625 11.37 14.625L11.54 14.625C12.3135 14.625 12.9773 14.084 13.13 13.325C13.7361 10.3156 16.4174 8.125 19.5 8.125C22.5842 8.125 25.2623 10.3156 25.87 13.325C26.0228 14.084 26.6865 14.625 27.46 14.625L27.62 14.625C30.3077 14.625 32.5 16.8073 32.5 19.495C32.5 20.6845 32.0649 21.8378 31.28 22.725C30.6852 23.3993 30.7489 24.4286 31.42 25.025C31.7304 25.2981 32.1181 25.425 32.5 25.425C32.9501 25.425 33.3983 25.2375 33.72 24.875C35.0297 23.3914 35.75 21.4793 35.75 19.495C35.75 15.3872 32.6834 11.9828 28.72 11.445ZM20.65 18.3466C20.0243 17.7194 19.0103 17.7156 18.37 18.3266L13.5 23.0366C12.8548 23.6606 12.836 24.6899 13.46 25.3366C14.0839 25.9817 15.1049 26.0022 15.75 25.3766L17.88 23.3266L17.88 32.4966C17.88 33.3953 18.603 34.1266 19.5 34.1266C20.3969 34.1266 21.13 33.3953 21.13 32.4966L21.13 23.4266L23.23 25.5266C23.547 25.8435 23.954 25.9966 24.37 25.9966C24.786 25.9966 25.2032 25.8435 25.52 25.5266C26.1555 24.8913 26.1555 23.8619 25.52 23.2266L20.65 18.3466Z'%3E %3C/path%3E %3C/svg%3E ");
-  width: 100%;
-  height: 100%;
-  position: relative; 
-  left: -18rpx; 
-  top: 0rpx;
-  background-size: contain; /* 使图标自适应容器大小 */
-  background-repeat: no-repeat; /* 防止图标重复 */
-  background-position: center; /* 图标居中 */
-}
-
-.bottom-image {/*背景小猫*/
-  width: 440.53rpx;
-  height: 174.4rpx;
-  position: fixed;    
-bottom:0rpx;                  
-  left: 50%;   
-                 
-  transform: translateX(-50%);
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='252.60009765625' height='100' viewBox='0 0 252.60009765625 100' fill='none'%3E %3Cpath d='M196 73.5L204 60L212.5 73.5L228.5 73.5L237 60L244 73.5L244 100L196 100L0 100L7.5 88.5L41.5 88.5L56 73.5L196 73.5Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='212' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='228' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Cpath d='M86 100L72.5 89L77.5 89L91 100L86 100Z' fill='%2300ADB5' %3E %3C/path%3E %3Cpath d='M243 85L252.5 82L252.5 85L243 88L243 85Z' fill='%23FFFFFF' %3E %3C/path%3E %3Cpath d='M243 94L252.6 97L252.6 94L243 91L243 94Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='196' y='35' width='16' height='13' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='154' y='0' width='33' height='22' fill='%2300ADB5' %3E %3C/rect%3E %3C/svg%3E ");
-  background-size: contain; /* 使图标自适应容器大小 */
-  background-repeat: no-repeat; /* 防止图标重复 */
-  background-position: center; /* 图标居中 */
+/* 底部装饰图 */
+.bottom-image {
+  width: 440rpx;
+  height: 174rpx;
+  /* position: absolute; */
+  /* bottom: 0; */
+  margin: 60rpx 0 0 0;
+  left: 50%;
+  display: block;
+  /* transform: translateX(-50%); */
   z-index: 99;
-
 }
