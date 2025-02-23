@@ -157,8 +157,8 @@ Page({
   },
 
   // 页面跳转到积分页面的函数
-  goToPointsPage: function () {
-    this.navigateToPage('/pages/points/points');
+  goToMyPointPage: function () {
+    this.navigateToPage('/pages/MyPoints/MyPoints');
   },
 
   // 页面跳转到借物页面的函数

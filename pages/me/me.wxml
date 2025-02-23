@@ -55,7 +55,7 @@
       <!-- 显示 '积分' 标签 -->
       <text class="score-label">积分</text>
       <!-- 积分值的显示区域，点击后触发 goToPointsPage 函数 -->
-      <button class="score-value" bindtap="goToPointsPage" style="width:100%; background-color: #00ADB5;">
+      <button class="score-value" bindtap="goToMyPointPage" style="width:100%; background-color: #00ADB5;">
       <!-- 显示用户的积分，积分值从 userPoints 变量获取 -->
         <text class="score-number">{{userPoints}}</text>
         <!--白色箭头图标-->

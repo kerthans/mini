@@ -12,7 +12,9 @@
     "pages/task/task",
     "pages/schedule/schedule",
     "pages/activity/activity",
-    "pages/xiumi/xiumi"
+    "pages/xiumi/xiumi",
+    "pages/3D/3D",
+    "pages/MyPoints/MyPoints"
   ],
   "window": {
     "backgroundTextStyle": "light",
