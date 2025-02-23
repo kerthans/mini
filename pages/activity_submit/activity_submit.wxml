@@ -17,7 +17,7 @@
     <!-- 活动名称 -->
     <view class="form-item">
       <text class="form-label">活动名称</text>
-      <input class="form-input" placeholder="请输入活动名称" data-field="event_name"/>
+      <input class="form-input {{isNameFocused ? 'focused' : ''}}" bindtap = "onNameFocused" bindblur = "onNameBlur" placeholder="请输入活动名称" data-field="event_name"/>
     </view>
 
     <!-- 海报上传 -->
@@ -32,19 +32,19 @@
     <!-- 活动简介 -->
     <view class="form-item">
       <text class="form-label">活动简介</text>
-      <textarea class="form-input textarea" placeholder="请输入活动简介" data-field="description"/>
+      <textarea class="form-input textarea {{isDescriptionFocused ? 'focused' : ''}}" bindtap = "onDescriptionFocused" bindblur = "onDescriptionBlur" placeholder="请输入活动简介" data-field="description" />
     </view>
 
     <!-- 举办地点 -->
     <view class="form-item">
       <text class="form-label">举办地点</text>
-      <input class="form-input" placeholder="请输入举办地点" data-field="location"/>
+      <input class="form-input {{isLocationFocused ? 'focused' : ''}}" bindtap = "onLocationFocused" bindblur = "onLocationBlur" placeholder="请输入举办地点" data-field="location"/>
     </view>
 
     <!-- 二课链接 -->
     <view class="form-item">
       <text class="form-label">二课链接</text>
-      <input class="form-input" placeholder="请输入二课链接" data-field="link"/>
+      <input class="form-input {{isLinkFocused ? 'focused' : ''}}" bindtap = "onLinkFocused" bindblur = "onLinkBlur" placeholder="请输入二课链接" data-field="link"/>
     </view>
 
     <!-- 时间选择器组 -->

@@ -36,7 +36,11 @@ Page({
 
     screenWidth: 0,
     screenHeight: 0,
-    layoutStyle: ''
+    layoutStyle: '',
+    isNameFocused: false,
+    isDescriptionFocused: false,
+    isLocationFocused: false,
+    isLinkFocused: false
   },
 
   onLoad() {
@@ -67,6 +71,54 @@ Page({
   handlerGohomeClick() {
     wx.reLaunch({
       url: '/pages/index/index'
+    });
+  },
+
+  onNameFocused : function() {
+    this.setData({
+      isNameFocused: true
+    });
+  },
+
+  onNameBlur : function() {
+    this.setData({
+      isNameFocused: false
+    });
+  },
+
+  onDescriptionFocused : function() {
+    this.setData({
+      isDescriptionFocused: true
+    });
+  },
+
+  onDescriptionBlur : function() {
+    this.setData({
+      isDescriptionFocused: false
+    });
+  },
+
+  onLocationFocused : function() {
+    this.setData({
+      isLocationFocused: true
+    });
+  },
+
+  onLocationBlur : function() {
+    this.setData({
+      isLocationFocused: false
+    });
+  },
+
+  onLinkFocused : function() {
+    this.setData({
+      isLinkFocused: true
+    });
+  },
+
+  onLinkBlur : function() {
+    this.setData({
+      isLinkFocused: false
     });
   },
 

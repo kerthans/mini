@@ -10,6 +10,11 @@
   position: relative;
 }
 
+.focused{
+  border-color: #00ADB5;
+  box-shadow: 0 0 5px rgba(0, 173, 181, 0.5);
+}
+
 /* 表单容器 */
 .form-container {
   flex:1;
@@ -72,15 +77,22 @@
   justify-content: center;
 }
 
+.upload-box:active {
+ background-color: rgba(0, 173, 181, 0.2);
+}
+
 .upload-box text {
   margin-left: 20rpx;
   color: #666;
 }
 
 .upload-icon {
-  width: 60rpx;
-  height: 60rpx;
-  
+  width: 50rpx;
+  height: 50rpx;
+}
+
+picker:active {
+    background-color: rgba(0, 173, 181, 0.2);
 }
 
 /* 时间选择器 */

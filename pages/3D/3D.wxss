@@ -105,6 +105,10 @@ input {
   font-weight: 400;
 }
 
+.upload-btn:active {
+    background-color: rgba(0, 173, 181, 0.2);
+}
+
 /* 上传图标样式 */
 .upload-icon {
   width: 50rpx; /* 图标宽度 */
