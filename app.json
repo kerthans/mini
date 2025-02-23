@@ -10,7 +10,7 @@
     "pages/project_work_page/project_work_page",
     "pages/task/task",
     "pages/schedule/schedule",
-    "pages/activity/activity",
+    "pages/activity_submit/activity_submit",
     "pages/xiumi/xiumi",
     "pages/3D/3D",
     "pages/MyPoints/MyPoints"

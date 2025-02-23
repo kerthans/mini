@@ -43,7 +43,7 @@ Page({
       wx.navigateTo({ url: '/pages/task/task' }) // 发布任务
     },
     navigate3() {
-      wx.navigateTo({ url: '/pages/activity/activity' }) // 活动宣传发布
+      wx.navigateTo({ url: '/pages/activity_submit/activity_submit' }) // 活动宣传发布
     },
     navigate4() {
       wx.navigateTo({ url: '/pages/xiumi/xiumi' }) // 秀米链接提交
