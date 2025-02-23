@@ -6,11 +6,11 @@ Page({
     name: '',
     content: '',
     deadline:'',
-    years: Array.from({ length: 100 }, (_, i) => 2024 + i),
+    years: Array.from({ length: 100 }, (_, i) => 2024 + i + '年'),
     months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-    days: Array.from({ length: 31 }, (_, i) => i + 1),
-    hours: Array.from({ length: 24 }, (_, i) => i + 1),
-    minutes: Array.from({ length: 60 }, (_, i) => i + 1),
+    days: Array.from({ length: 31 }, (_, i) => i + 1 + '日'),
+    hours: Array.from({ length: 24 }, (_, i) => i + 1 + '时'),
+    minutes: Array.from({ length: 60 }, (_, i) => i + 1 + '分'),
     selectedYear: null,
     selectedMonth: null,
     selectedDay: null,
@@ -49,6 +49,8 @@ Page({
     });
   },
 
+
+  
   onInput(e) {//编辑函数
     const field = e.currentTarget.dataset.field;
     this.setData({

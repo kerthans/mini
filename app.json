@@ -8,7 +8,6 @@
     "pages/base_management_work_page/base_management_work_page",
     "pages/operation_maintenance_work_page/operation_maintenance_work_page",
     "pages/project_work_page/project_work_page",
-    
     "pages/task/task",
     "pages/schedule/schedule",
     "pages/activity/activity",
