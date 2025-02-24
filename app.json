@@ -13,7 +13,8 @@
     "pages/activity_submit/activity_submit",
     "pages/xiumi/xiumi",
     "pages/3D/3D",
-    "pages/MyPoints/MyPoints"
+    "pages/MyPoints/MyPoints",
+    "pages/activitydetail/activitydetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
