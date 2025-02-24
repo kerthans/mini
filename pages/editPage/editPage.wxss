@@ -1,7 +1,7 @@
 /* pages/editPage/editPage.wxss */
 /* 页面容器 */
 button:active {
-  opacity: 0.8;
+  filter:brightness(0.95);
 }
 
 .container {

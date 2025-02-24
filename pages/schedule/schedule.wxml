@@ -8,7 +8,7 @@
     <view class="table-header">
       <view class="table-cell-header">活动文案</view>
       <view class="table-cell-header">推文</view>
-      <view class="table-cell-header-a" style="position: relative; left: 0rpx; top: 0rpx">新闻稿</view>
+      <view class="table-cell-header" style="position: relative; left: 0rpx; top: 0rpx">新闻稿</view>
     </view>
 
     <!-- 表格内容 -->
@@ -30,7 +30,7 @@
   <!-- 按钮 -->
    
   <view class="button-container-a"  wx:if="{{!isEditing||level==3}}" bindtap="startEdit" >
-   <view class="icon"><view class="icon-edit" ></view></view>
+   <image class="icon-edit" src = "/images/schedule/edit.svg"></image>
  
  
 

@@ -16,6 +16,9 @@ Page({
     selectedDay: null,
     selectedHour: null,
     selectedMinute: null,
+    isNameFocused: false,
+    isDirectorFocused: false,
+    isDescriptionFocused: false
   },
 
   onLoad() {
@@ -49,7 +52,41 @@ Page({
     });
   },
 
+  onNameFocused : function() {
+    this.setData({
+      isNameFocused: true
+    });
+  },
 
+  onNameBlur : function() {
+    this.setData({
+      isNameFocused: false
+    });
+  },
+
+  onDirectorFocused : function() {
+    this.setData({
+      isDirectorFocused: true
+    });
+  },
+
+  onDirectorBlur : function() {
+    this.setData({
+      isDirectorFocused: false
+    });
+  },
+
+  onDescriptionFocused : function() {
+    this.setData({
+      isDescriptionFocused: true
+    });
+  },
+
+  onDescriptionBlur : function() {
+    this.setData({
+      isDescriptionFocused: false
+    });
+  },
   
   onInput(e) {//编辑函数
     const field = e.currentTarget.dataset.field;
