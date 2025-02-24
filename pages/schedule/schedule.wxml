@@ -1,45 +1,64 @@
 <view class="container">
   <navBar title='学年工作安排' background='#222831' color='#fff' back="{{true}}" home="{{true}}" iconTheme='white' bindback="handlerGobackClick" bindhome="handlerGohomeClick"></navBar>
-
-
   <!-- 表格 -->
   <view class="table" >
     <!-- 表头 -->
     <view class="table-header">
-      <view class="table-cell-header">活动文案</view>
-      <view class="table-cell-header">推文</view>
-      <view class="table-cell-header" style="position: relative; left: 0rpx; top: 0rpx">新闻稿</view>
+      <view class="table-header-cell">活动文案</view>
+      <view class="table-header-cell">推文</view>
+      <view class="table-header-cell">新闻稿</view>
     </view>
-
     <!-- 表格内容 -->
     <view class="table-body">
       <view class="table-row" wx:for="{{tableData}}" wx:key="index">
-        <view class="table-cell">
-        <input wx:if="{{isEditing}}" bindtab="onCellClick"
-        data-field="activity" data-index="{{index}}" >{{item.activity}}</input></view>
-        
-        <view class="table-cell"><input wx:if="{{isEditing}}" bindtab="onCellClick"
-        data-field="push" data-index="{{index}}">{{item.push}}</input></view>
-        
-        <view class="table-cell"><input  wx:if="{{isEditing}}" bindtab="onCellClick"
-        data-field="news" data-index="{{index}}" />{{item.news}}</view>
+        <!-- 活动文案列 -->
+    <input 
+      class="table-cell" 
+      wx:if="{{isEditing}}" 
+      value="{{item.script}}" 
+      bindinput="onCellInput"
+      data-field="script" 
+      data-index="{{index}}"
+      placeholder="{{item.script}}"
+    />
+    <text wx:else class="table-cell">{{item.script}}</text>
+
+    <!-- 推文列 -->
+    <input 
+      class="table-cell" 
+      wx:if="{{isEditing}}" 
+      value="{{item.push}}" 
+      bindinput="onCellInput"
+      data-field="push" 
+      data-index="{{index}}"
+      placeholder="{{item.push}}"
+    />
+    <text wx:else class="table-cell">{{item.push}}</text>
+
+    <!-- 新闻稿列 -->
+    <input 
+      class="table-cell" 
+      wx:if="{{isEditing}}" 
+      value="{{item.news}}" 
+      bindinput="onCellInput"
+      data-field="news" 
+      data-index="{{index}}"
+      placeholder="{{item.news}}"
+    />
+    <text wx:else class="table-cell">{{item.news}}</text>
       </view>
     </view>
   </view>
 
   <!-- 按钮 -->
-   
-  <view class="button-container-a"  wx:if="{{!isEditing||level==3}}" bindtap="startEdit" >
-   <image class="icon-edit" src = "/images/schedule/edit.svg"></image>
- 
- 
-
+  <view class=" edit-container edit"  wx:if="{{!isEditing||level==3}}" bindtap="toggleEdit" >
+    <image class="icon-edit" src = "/images/schedule/edit.svg"></image>
   </view>
 
   <!-- 提交和取消按钮 -->
-  <view class="button-container" wx:if="{{isEditing}}">
-    <button class="button_submit" bindtap="submitEdit">提交</button>
-    <button class="button_cancel" bindtap="cancelEdit" >取消</button>
+  <view class="edit-container btn" wx:if="{{isEditing}}">
+    <button  style = "width: 186.6rpx; margin:0rpx;" bindtap="submitEdit">提交</button>
+    <button style = "width: 186.6rpx; margin:0;" bindtap="cancelEdit" >取消</button>
   </view>
-  <view class="bottom-image" mode="widthFix"></view>
+  <image src = "/images/schedule/white_cat.svg" class="bottom-image" mode="widthFix"></image>
 </view>
