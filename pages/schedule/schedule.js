@@ -3,19 +3,10 @@ Page({
     isEditing: false,
     level:1,
     tableData: [
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
-      { activity: '', push: '', news: '' },
+      { script: '许景源', push: '王远航', news: '岳一扬' },
+      { script: '岳一扬', push: '许景源', news: '王远航' },
+      { script: '王远航', push: '岳一扬', news: '许景源' },
+      { script: '陈泓瑶', push: '陈泓瑶', news: '陈泓瑶' },
     ],
     editableRow: null,   // 当前行索引
     editable1CellIndex: null // 当前列索引
@@ -72,28 +63,39 @@ Page({
     });
   },
 
-  onCellClick(e) {
+  // 输入事件处理
+  onCellInput(e) {
     const { index, field } = e.currentTarget.dataset;
+    const newValue = e.detail.value;
+    
     this.setData({
-      editableRow: index,
-      editableCellIndex: field
-    });
-  },//点击后可以编辑单元格
+      [`tableData[${index}].${field}`]: newValue
+    })
+  },
 
-   // 开启编辑模式
-   startEdit: function() {
+  // 切换编辑模式
+  toggleEdit() {
     this.setData({
-      isEditing: true
-    });
+      isEditing: !this.data.isEditing
+    })
   },
 
   // 提交编辑
   submitEdit: function() {
-    console.log('提交编辑');
-    this.setData({
-      isEditing: false
+    wx.showModal({
+      title: '提交修改确认',
+      content: '学年工作安排被修改，确认提交修改？',
+      success: e => {
+        if (e.confirm) {
+          console.log('提交编辑');
+          this.setData({isEditing: false});
+        }
+        else {
+          console.log('取消提交编辑');
+        }
+      }
     });
-
+    
     wx.request({/*上传修改过后的数据*/
       url: 'https://your-backend-server.com/api/data', // 替换为你的后端 API 地址
       method: 'POST',
@@ -121,9 +123,18 @@ Page({
 
   // 取消编辑
   cancelEdit: function() {
-    console.log('取消编辑');
-    this.setData({
-      isEditing: false
+    wx.showModal({
+      title: '取消修改确认',
+      content: '学年工作安排已被修改，取消后修改将会丢失，是否确认取消？',
+      success: e => {
+        if (e.confirm) {
+          console.log('取消编辑');
+          this.setData({isEditing: false});
+        }
+        else {
+          console.log('未取消编辑');
+        }
+      }
     });
   }
 });

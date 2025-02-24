@@ -1,37 +1,35 @@
+page {
+  background-color: #222831;
+}
+
 .container {/*页面的整体*/
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   min-height: 100vh;
   width: 100vw;
-  background-color: #222831;
-  position: relative;
+  padding:0;
 }
 
 .table {/*表格整体*/
-  border-radius: 15px;
+  border-radius: 35rpx;
   width: 605rpx;
-  height: 865rpx;
-  overflow: hidden;
+  height: auto;
   position: relative;
-  top:-168.24rpx;
-  background-color: #fff;
-}
-
-.table-header, .table-row {
-  display: flex;
-  justify-content: space-between;
+  margin-top: 50rpx;
+  font-size: 28rpx;
 }
 
 .table-header {/*表格的表头*/
-  font-size: 28rpx;
+  border-radius: 35rpx 35rpx 0rpx 0rpx;
   background-color: #00adb5;
   color: white;
   display: flex;
   justify-content: flex-start;
 }
 
-.table-cell-header {/*表头的每个单元格*/
+.table-header-cell {
   flex: 1;
   display: flex;
   align-items: center;
@@ -39,80 +37,89 @@
   text-align: center;
   border-right: 2px dotted #ccc;
   border-bottom: 2px dotted #ccc;
-  width:201.67rpx;
-  height: 73.25rpx;
+  height: 72rpx;
 }
 
-.table-cell-header:last-child {
-  border-right:0 ;
+.table-header-cell:last-child {
+  border-right: 0 ;
 }
 
-.table-cell {/*表格主体的每个单元格*/
-  flex: 1;
+.table-body {
+  width: 100%;
+  color:#222831;
+}
+
+.table-cell{/*表格主体的每个单元格*/
   text-align: center;
-  line-height: 64.39rpx;
   border-right: 2px dotted #ccc;
   border-bottom: 2px dotted #ccc;
   width:210.22rpx;
-  height: 62rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .table-cell:last-child {/*最后一个单元格*/
   border-right: none;
 }
 
+.table-row {
+  display: flex;
+  height: 72rpx; /* 强制与表头高度一致 */
+  background-color: #fff;
+}
 
 .table-row:nth-child(even) {/*对偶数单元格*/
   background-color: #f9f9f9;
 }
 
-.button-container-a {/*编辑按钮的容器*/
-  margin-top: 34.88rpx;
-  z-index: 4;
-  position: relative; 
-  left: 266rpx; 
-  top: -250rpx;}
-
-.button-container {/*提交和取消按钮的容器*/
-  display: flex;
-  justify-content: space-between; /* 平行排布 */
-  width: 50%;
-  margin-top: 17.44rpx;
-  z-index: 4;
-  position: relative;
- left: 0rpx; 
- top: -188.24rpx;
+.table-row:last-child {
+  border-radius: 0 0 35rpx 35rpx;
 }
 
-.button_submit {/*提交按钮*/
-  flex: 1;
+.table-row:last-child .table-cell {
+  border-bottom: none;
+}
+
+.edit-container {
+  display: flex;
+  width: 605rpx;
+  margin-top:40rpx;
+  align-items: center;
+}
+
+.edit-container.edit {
+  justify-content: flex-end;
+}
+
+/*提交和取消按钮的容器*/
+.edit-container.btn {
+  justify-content: center;
+  gap:50rpx;
+  
+}
+
+button {
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color:#ffffff;
-  width: 186.61rpx;
-  height: 73.25rpx;
-  line-height: 47rpx;
-  border-radius: 21px;
- z-index: 4;
- position: relative;
- left: -23.6rpx; 
+  font-weight: 400;
+  border-radius: 36rpx;
+  font-size: 30rpx;
+}
+
+button:first-child {/*提交按钮*/
  background-color:#00ADB5;
 }
 
-.button_cancel{/*取消按钮*/
-  flex: 1;
-  color:#ffffff;
-  width: 186.6rpx;
-  height: 73.25rpx;
-  line-height: 47rpx;
-  border-radius: 21px;
- z-index: 4;
- position: relative;
- left: 23.6px;
+button:last-child{
   background-color: #E33C64;
 }
 
 .icon-edit{/*编辑按钮的图标*/
-  position: relative;
-  top: 55rpx;
   width: 70rpx;
   height: 70rpx; 
 }
@@ -125,11 +132,4 @@
   bottom: 0rpx;                   
   left: 50%;                  
   transform: translateX(-50%);
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='252.60009765625' height='100' viewBox='0 0 252.60009765625 100' fill='none'%3E %3Cpath d='M196 73.5L204 60L212.5 73.5L228.5 73.5L237 60L244 73.5L244 100L196 100L0 100L7.5 88.5L41.5 88.5L56 73.5L196 73.5Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='212' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='228' y='80' width='3' height='10' fill='%2300ADB5' %3E %3C/rect%3E %3Cpath d='M86 100L72.5 89L77.5 89L91 100L86 100Z' fill='%2300ADB5' %3E %3C/path%3E %3Cpath d='M243 85L252.5 82L252.5 85L243 88L243 85Z' fill='%23FFFFFF' %3E %3C/path%3E %3Cpath d='M243 94L252.6 97L252.6 94L243 91L243 94Z' fill='%23FFFFFF' %3E %3C/path%3E %3Crect x='196' y='35' width='16' height='13' fill='%2300ADB5' %3E %3C/rect%3E %3Crect x='154' y='0' width='33' height='22' fill='%2300ADB5' %3E %3C/rect%3E %3C/svg%3E ");
-  background-size: contain; /* 使图标自适应容器大小 */
-  background-repeat: no-repeat; /* 防止图标重复 */
-  background-position: center; /* 图标居中 */
-  z-index: 99;
-
 }
