@@ -12,14 +12,15 @@
   </navBar>
 
   <view class="form-container">
-    <text class="form-label">任务名称</text>
-    <input class="input-field" placeholder="请输入任务名称" data-field="taskName"/>
+
+    <text class="form-label ">任务名称</text>
+    <input class="input-field {{isNameFocused ? 'focused' : ''}}" placeholder="请输入任务名称" data-field="taskName"  bindtap = "onNameFocused" bindblur = "onNameBlur"/>
     
     <text class="form-label">负责人</text>
-    <input class="input-field" placeholder="请输入负责人" data-field="responsible"/>
+    <input class="input-field {{isDirectorFocused ? 'focused' : ''}}" placeholder="请输入负责人" data-field="responsible" bindtap = "onDirectorFocused" bindblur = "onDirectorBlur"/>
     
     <text class="form-label">任务内容</text>
-    <textarea class="input-field textarea-field" placeholder="请输入任务内容" data-field="taskContent"/>
+    <textarea class="input-field textarea-field {{isDescriptionFocused ? 'focused' : ''}}" placeholder="请输入任务内容" data-field="taskContent" bindtap = "onDescriptionFocused" bindblur = "onDescriptionBlur"/>
     
     <text class="form-label">任务截止时间</text>
     <view class="time-picker-group">
@@ -42,28 +43,26 @@
         range="{{days}}" 
         bindchange="onDayChange"
         data-type="deadline">  <!-- 新增 -->
-        <view>{{selectedDay || '日'}}</view>
+        <view>{{selectedDay || '日期'}}</view>
       </picker>
       <picker 
         mode="selector" 
         range="{{hours}}" 
         bindchange="onHourChange"
         data-type="deadline">  <!-- 新增 -->
-        <view>{{selectedHour || '时'}}</view>
+        <view>{{selectedHour || '小时'}}</view>
       </picker>
       <picker 
         mode="selector" 
         range="{{minutes}}" 
         bindchange="onMinuteChange"
         data-type="deadline">  <!-- 新增 -->
-        <view>{{selectedMinute || '分'}}</view>
+        <view>{{selectedMinute || '分钟'}}</view>
       </picker>
     </view>
-
-
   </view>
 
-  <button class="submit-btn" bindtap="onSubmit" style="width: 50%;">提交任务</button>
+  <button class="submit-btn" bindtap="onSubmit" style="width: 227rpx;">提交</button>
 
   <image class="decorative-image" src="/images/activity/white_cat.svg"/>
 </view>

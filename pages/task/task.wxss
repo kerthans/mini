@@ -10,6 +10,12 @@
   justify-content: space-between;
 }
 
+
+.focused{
+  /* border-color: #00ADB5; */
+  box-shadow:0 0 5px rgba(0, 107, 255, 0.7);
+}
+
 /* 表单容器 */
 .form-container {
   background: #00adb5;
@@ -27,12 +33,15 @@
   font-size: 28rpx;
   padding: 0 28rpx;
   margin-bottom: 30rpx;
-  border: 2rpx solid transparent;
   transition: all 0.3s;
 }
 
-.input-field:focus {
+/* .input-field:focus {
   border-color: #222831;
+} */
+
+picker:active {
+  background-color: rgba(0, 173, 181, 0.2);
 }
 
 /* 文本域样式 */
@@ -50,6 +59,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20rpx;
   margin: 40rpx 0;
+  color:#7D8592;
 }
 
 .time-picker-group picker {
@@ -75,9 +85,9 @@
   transition: all 0.3s;
 }
 
-.time-picker.active {
+/* .time-picker.active {
   background: #d5d5d5;
-}
+} */
 
 /* 特殊定位选择器 */
 .year-picker {
@@ -109,10 +119,12 @@
   box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.15);
   transition: all 0.3s;
   line-height: 60rpx;
+  font-weight: 400;
 }
 
 .submit-btn:active {
   transform: scale(0.98);
+  filter:brightness(0.95);
 }
 
 /* 装饰图片样式 */
