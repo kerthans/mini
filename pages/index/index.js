@@ -28,5 +28,18 @@ Page({
     wx.redirectTo({
       url: url
     });
+  },
+
+  navigateToActivity:function() {
+    wx.navigateTo({
+      url: '/pages/activity_list/activity_list',
+      success: () => {
+        console.log('成功跳转至活动列表页');
+      },
+      fail: (err) => {
+        console.error('跳转失败:', err);
+        wx.showToast({ title: '页面跳转失败', icon: 'none' });
+      }
+    });
   }
 })

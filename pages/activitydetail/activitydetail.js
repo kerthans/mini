@@ -1,7 +1,7 @@
 Page({
   data: {
     apiData: {
-      event_id: "",
+      event_id: 11,
       event_name: "活动名称",
       poster: "/images/activitydetail/api.jpg",
       description: "社团成员",
