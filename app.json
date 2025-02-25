@@ -14,7 +14,8 @@
     "pages/xiumi/xiumi",
     "pages/3D/3D",
     "pages/MyPoints/MyPoints",
-    "pages/activitydetail/activitydetail"
+    "pages/activitydetail/activitydetail",
+    "pages/activity_list/activity_list"
   ],
   "window": {
     "backgroundTextStyle": "light",

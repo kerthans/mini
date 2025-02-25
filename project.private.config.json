@@ -10,29 +10,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/schedule/schedule",
-          "pathName": "pages/schedule/schedule",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/task/task",
-          "pathName": "pages/task/task",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/editPage/editPage",
-          "pathName": "pages/editPage/editPage",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/activity_submit/activity_submit",
-          "pathName": "pages/activity_submit/activity_submit",
+          "name": "pages/activity_list/activity_list",
+          "pathName": "pages/activity_list/activity_list",
           "query": "",
           "launchMode": "default",
           "scene": null
