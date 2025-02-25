@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/register/register",
     "pages/index/index",
     "pages/me/me",
     "pages/editPage/editPage",
@@ -25,7 +27,6 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "navBar": "/components/navBar/navBar"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

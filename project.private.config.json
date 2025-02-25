@@ -10,6 +10,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/activitydetail/activitydetail",
+          "pathName": "pages/activitydetail/activitydetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/activity_list/activity_list",
           "pathName": "pages/activity_list/activity_list",
           "query": "",
