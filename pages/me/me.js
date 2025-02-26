@@ -1,6 +1,6 @@
 Page({
   data: {
-    isAssociationMember: false, // 判断是否是协会成员
+    isAssociationMember: true, // 判断是否是协会成员
     textToCopy: '这是要复制的文本',//用于复制的文本
     userInfo: {
       name: '小 鳄 鱼',          // 用户名

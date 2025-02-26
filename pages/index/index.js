@@ -1,7 +1,20 @@
 // index.js
+var loginJS = require("../../API/login.js");
 Page({
   data: {
-    activeTab: 'index' // 当前页面为首页
+    activeTab: 'index', // 当前页面为首页
+    showAuthModal: false,
+    hasUserInfo: false
+  },
+
+  onLoad() {
+    console.log('[Page] 初始化授权检查');
+    // 初始化时检查本地存储
+    const userInfo = wx.getStorageSync('userInfo');
+    if (userInfo) {
+      console.log('[Auth] 发现本地用户信息');
+      this.setData({ hasUserInfo: true });
+    }
   },
 
   // 点击底部导航项时调用
@@ -30,16 +43,51 @@ Page({
     });
   },
 
-  navigateToActivity:function() {
+  navigateToActivity: function() {
+    console.log('[Auth] 尝试访问功能');
+    if (!this.data.hasUserInfo) {
+      this.showAuthModal(); // 抽离授权逻辑
+    } else {
+      this.actuallyNavigate();
+    }
+  },
+
+  // 新增授权弹窗控制
+  showAuthModal: function() {
+    // 直接调用已有防护机制的 getUserInfo
+    loginJS.getUserInfo().catch(err => {
+      if (err === 'REQUEST_IN_PROGRESS') {
+        console.log('[Auth] 已有授权请求进行中，阻止重复弹窗');
+        return;
+      }
+      
+    });
+    console.log('[Auth] 显示授权提示');
+    wx.showModal({
+      title: '授权提示',
+      content: '需要您授权才能使用该功能',
+      confirmText: '立即授权',
+      cancelText: '暂不使用',
+      success: (res) => {
+        if (res.confirm) {
+          loginJS.handleUserAuth(res.confirm);
+        } else {
+          console.log('[Auth] 用户拒绝授权');
+          wx.showToast({ title: '功能需要授权才能使用', icon: 'none' });
+        }
+      }
+    });
+  },
+
+  actuallyNavigate: function() {
     wx.navigateTo({
       url: '/pages/activity_list/activity_list',
-      success: () => {
-        console.log('成功跳转至活动列表页');
-      },
+      success: () => console.log('跳转成功'),
       fail: (err) => {
         console.error('跳转失败:', err);
         wx.showToast({ title: '页面跳转失败', icon: 'none' });
       }
     });
   }
+
 })

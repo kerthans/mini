@@ -17,6 +17,32 @@ Page({
     this.getDataFromAPI();
   },
 
+  handlerGobackClick() {
+    wx.showModal({
+      title: '你点击了返回',
+      content: '是否确认放回',
+      success: e => {
+        if (e.confirm) {
+          const pages = getCurrentPages();
+          if (pages.length >= 2) {
+            wx.navigateBack({
+              delta: 1
+            });
+          } else {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            });
+          }
+        }
+      }
+    });
+  },
+  handlerGohomeClick() {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    });
+  },
+
   getDataFromAPI() {
     wx.request({
       url: "/api/events/view",  // 后端给的地址

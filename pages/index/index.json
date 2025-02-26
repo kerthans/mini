@@ -5,6 +5,7 @@
   "backgroundColorTop": "#00000",
   "backgroundColorBottom": "#f8f8f8",
   "usingComponents": {
-    "navBar": "/components/navBar/navBar"
+    "navBar": "/components/navBar/navBar",
+    "auth-modal": "/components/auth-modal/auth-modal"
   }
 }

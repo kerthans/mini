@@ -3,12 +3,27 @@
   "projectname": "mini",
   "setting": {
     "compileHotReLoad": true,
-    "skylineRenderEnable": false
+    "skylineRenderEnable": false,
+    "urlCheck": false
   },
   "libVersion": "trial",
   "condition": {
     "miniprogram": {
       "list": [
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/3D/3D",
+          "pathName": "pages/3D/3D",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
         {
           "name": "pages/me/me",
           "pathName": "pages/me/me",

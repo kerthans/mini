@@ -1,5 +1,4 @@
 // pages/3D/3D.js
-
 Page({
     data: {
     name: '', // 用户姓名

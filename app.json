@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/register/register",
     "pages/index/index",
     "pages/me/me",
     "pages/editPage/editPage",
@@ -17,7 +15,8 @@
     "pages/3D/3D",
     "pages/MyPoints/MyPoints",
     "pages/activitydetail/activitydetail",
-    "pages/activity_list/activity_list"
+    "pages/activity_list/activity_list",
+    "components/auth-modal/auth-modal"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,6 +26,7 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
+    
   },
   "style": "v2",
   "componentFramework": "glass-easel",
