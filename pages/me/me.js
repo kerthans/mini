@@ -1,13 +1,23 @@
+const api = require('../../API/me.js')
+
 Page({
   data: {
-    isAssociationMember: true, // 判断是否是协会成员
+    isAssociationMember:0, // 判断是否是协会成员
     textToCopy: '这是要复制的文本',//用于复制的文本
     userInfo: {
-      name: '小 鳄 鱼',          // 用户名
-      phone: '',         // 用户电话
-      signature: '',     // 个性签名
+      username: '小 鳄 鱼',          // 用户名
+      phone_num: '',         // 用户电话
+      score: '',     // 积分
+      role: '' // 用户身份，0是社团外人员，1是干事，2是部长
     },
-    userPoints: '49',//用户积分
+    // 按钮处理函数映射
+    itemHandler: [
+      'goToBorrowPage',
+      'goToProjectPage',
+      'goToVenuePage',
+      'goToHonorWallPage'
+    ],
+    items: ['我的借物','我的项目','我的场地','荣誉墙','协会工作'],
     activeTab: 'me' // 当前页面为我的
   },
 
@@ -47,69 +57,32 @@ Page({
   },
 
   onLoad: function (options) {
-    // 模拟通过 API 获取是否是协会成员
-    wx.request({
-      url: 'https://your-api-url', // 假设的 API URL
-      method: 'GET',
-      success: (res) => {
-        // 设置用户状态，修正拼写错误
-        this.setData({
-          isAssociationMember: res.data.isAssociationMember, 
-        });
-      },
-      fail: () => {
-        wx.showToast({
-          title: '获取协会成员状态失败',
-          icon: 'none'
-        });
-      },
-      complete: () => {
-        // 可在此处添加统一的清理或提示操作
-      }
-    });
-
     // 获取用户信息，包括用户名、电话、个性签名、积分
-    this.fetchUserData();
+    api.fetchUserData(this, 
+      (data) => console.log('成功:', data),
+      (err) => console.error('失败:', err)
+    )
+    console.log(this.data.userInfo.role);
+    switch(this.data.userInfo.role) {
+      case 0:
+        isAssociationMember = false;
+        break;
+      case 1:
+        isAssociationMember = true;
+        break;
+      case 2:
+        isAssociationMember = true;
+        break;
+      default:
+        wx.showToast({
+          title: '权限异常',
+          icon:'error',
+        });
+        console.log('获取权限异常');
+    }
   },
 
-  // 获取用户数据并更新页面内容
-  fetchUserData: function () {
-    // 发起网络请求获取用户信息
-    wx.request({
-      url: 'https://your-api-url/userinfo', // 假设的 API URL要替换为实际API
-      method: 'GET',// 使用GET请求方法获取数据
-      success: (res) => {// 请求成功时的回调函数
-        // 检查响应的状态码是否为 200，表示请求成功
-        if (res.statusCode === 200) {
-          // 从返回的数据中解构出用户的相关信息
-          const { name, phone, signature, points } = res.data;
-          // 更新页面中的用户信息
-          this.setData({
-            'userInfo.name': name,// 更新用户的名字
-            'userInfo.phone': phone,// 更新用户的电话
-            'userInfo.signature': signature,// 更新用户的个性签名
-            userPoints: points,// 更新用户的积分
-          });
-        } else {
-          // 如果状态码不是200，显示获取用户信息失败的提示
-          wx.showToast({
-            title: '获取用户信息失败',
-            icon: 'none',// 不显示任何图标，只显示文字
-          });
-        }
-      },
-      fail: () => {// 请求失败时的回调函数
-        // 网络请求失败时，展示错误提示
-        wx.showToast({
-          title: '网络请求失败',// 提示内容
-          icon: 'none',// 不显示图标
-        });
-      },
-      complete: () => {
-        // 可在此处添加统一的清理或提示操作
-      }
-    });
-  },
+  
 
   // 复制文本到剪贴板
   copyText: function () {

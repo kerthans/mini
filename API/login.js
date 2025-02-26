@@ -38,22 +38,16 @@ const handleUserAuth = (confirmed) => {
       if (res.code) {
         console.log('[Auth] 获取code成功:', res.code);
         wx.request({
-          url: 'YOUR_API_URL',
+          url:'https://mini.makershub.top/api/login',
           method: 'POST',
           data: { code: res.code },
           success: (response) => {
             console.log('[Auth] 后端响应:', response.data);
-            if (response.data?.openid) {
-              const session = {
-                openid: response.data.openid,
-                expiresAt: Date.now() + (response.data.expires_in || 7200) * 1000
-              };
-              console.log('[Auth] 存储会话:', session);
-              wx.setStorageSync('authSession', session);
-              getApp().globalData.authResolver?.resolve(session.openid);
-            } else {
-              console.error('[Auth] 无效的响应数据');
-              getApp().globalData.authResolver?.reject('INVALID_RESPONSE');
+            if (response.data.code === 200) {
+              // ✔️ 核心操作：保存用户ID到缓存
+              wx.setStorageSync('auth_token', response.data.auth_token)
+              // 跳转到首页
+              wx.reLaunch({ url: '/pages/index/index' })
             }
           },
           fail: (err) => {

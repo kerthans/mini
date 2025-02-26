@@ -11,6 +11,34 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/base_management_work_page/base_management_work_page",
+          "pathName": "pages/base_management_work_page/base_management_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
+          "pathName": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/project_work_page/project_work_page",
+          "pathName": "pages/project_work_page/project_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/publicity_work_page/publicity_work_page",
+          "pathName": "pages/publicity_work_page/publicity_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",

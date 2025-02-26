@@ -1,7 +1,7 @@
 // index.js
 Page({
   data: {
-    level: 2 // 默认权限级别，需根据接口动态更新
+    level: 1 // 默认权限级别，需根据接口动态更新
   },
   
   onLoad() {
@@ -40,15 +40,14 @@ Page({
       wx.navigateTo({ url: '/pages/schedule/schedule' }) // 学年工作安排
     },
     navigate2() {
-      wx.navigateTo({ url: '/pages/task/task' }) // 发布任务
-    },
-    navigate3() {
       wx.navigateTo({ url: '/pages/activity_submit/activity_submit' }) // 活动宣传发布
     },
-    navigate4() {
+    navigate3() {
       wx.navigateTo({ url: '/pages/xiumi/xiumi' }) // 秀米链接提交
     },
-
+    navigate4() {
+      wx.navigateTo({ url: '/pages/task/task' }) // 发布任务
+    },
 
   
   // 示例：获取用户权限

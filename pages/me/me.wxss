@@ -129,6 +129,7 @@ button:active {
   height:120rpx;
   border-radius: 25rpx;
   padding:20rpx;
+  background-color: #00ADB5;
 }
 
 /* 积分数字样式 */
@@ -183,6 +184,7 @@ button:active {
   padding-left: 36rpx;
   margin-left: 80rpx;
 }
+
 
 /* 箭头图标样式 */
 .arrow-icon {
