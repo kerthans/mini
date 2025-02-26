@@ -61,10 +61,10 @@ Page({
     });
     console.log('[Auth] 显示授权提示');
     wx.showModal({
-      title: '授权提示',
-      content: '需要您授权才能使用该功能',
-      confirmText: '立即授权',
-      cancelText: '暂不使用',
+      title: '提示',
+      content: '授权以使用完整功能，授权后将获取您的用户信息，是否同意？',
+      confirmText: '同意',
+      cancelText: '拒绝',
       success: (res) => {
         if (res.confirm) {
           loginJS.handleUserAuth(res.confirm);
