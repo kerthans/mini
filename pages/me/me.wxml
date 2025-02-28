@@ -55,7 +55,7 @@
       <!-- 显示 '积分' 标签 -->
       <text class="score-label">积分</text>
       <!-- 积分值的显示区域，点击后触发 goToPointsPage 函数 -->
-      <button class="score-value" bindtap="goToPointsPage" style="width:100%; background-color: #00ADB5;">
+      <button class="score-value" bindtap="goToMyPointPage" style="width:100%;">
       <!-- 显示用户的积分，积分值从 userPoints 变量获取 -->
         <text class="score-number">{{userPoints}}</text>
         <!--白色箭头图标-->
@@ -69,36 +69,28 @@
   <view class="function-list-container">
     <image class="background-image" src="/images/me/cat_background.svg" mode="aspectFill"/>
         <view class="function-list">
-        <!-- 第一个功能项：我的借物，点击后触发 goToBorrowPage 函数-->
-          <button class="function-item" bindtap="goToBorrowPage" style="width:80%; background-color: #EEEEEE;">
-            <text> 我的借物</text>
-            <!--箭头图标-->
-            <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </button>
-          <!-- 第二个功能项：我的项目，点击后触发 goToProjectPage 函数 -->
-          <button class="function-item" bindtap="goToProjectPage" style="width:80%; background-color: #00ADB5;" >
-            <text> 我的项目</text>
-            <!--箭头图标-->
-            <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </button>
-          <!-- 第三个功能项：我的场地，点击后触发 goToVenuePage 函数 -->
-          <button class="function-item" bindtap="goToVenuePage" style="width:80%; background-color: #EEEEEE;" >
-            <text> 我的场地</text>
-            <!--箭头图标-->
-            <image class="arrow-icon" src="/images/me/right_arrow_black.svg"  mode="aspectFill" />
-          </button>
-          <!-- 第四个功能项：协会工作，仅当用户是协会成员时显示，点击后触发 goToWorkPage 函数 -->
-          <button class="function-item" bindtap="goToWorkPage" style="width:80%; background-color: #00ADB5;" wx:if="{{isAssociationMember}}">
-            <text> 协会工作</text>
-            <!--箭头图标-->
-            <image class="arrow-icon" src="/images/me/right_arrow_black.svg"   mode="aspectFill" />
-          </button>
-          <!-- 第五个功能项：荣誉墙，点击后触发 goToHonorWallPage 函数 -->
-          <button class="function-item" bindtap="goToHonorWallPage" style="width:80%; background-color: #EEEEEE;">
-            <text>荣誉墙</text>
-            <!--箭头图标-->
-            <image class="arrow-icon" src="/images/me/right_arrow_black.svg"  mode="aspectFill" />
-          </button>
+          <block wx:for="{{items}}" wx:key="index">
+            <button 
+              wx:if="{{index < 4}}"
+              class="function-item" 
+              bindtap="{{itemHandler[index]}}"
+              style="width:80%; background-color: {{index % 2 ? '#EEEEEE' : '#00ADB5'}};"
+            >
+              <text>{{item}}</text>
+              <image class="arrow-icon" src="/images/me/right_arrow_black.svg" mode="aspectFill" />
+            </button>
+            <!-- 第5个按钮只在协会成员时显示 -->
+            <button 
+              wx:if="{{index === 4 && isAssociationMember}}"
+              class="function-item" 
+              bindtap="goToWorkPage"
+              style="width:80%; background-color: {{index % 2 ? '#EEEEEE' : '#00ADB5'}};"
+            >
+              <text>{{item}}</text>
+              <image class="arrow-icon" src="/images/me/right_arrow_black.svg" mode="aspectFill" />
+            </button>
+          </block>
+        
         </view>
   </view>
   <!-- 底部的导航栏 -->

@@ -15,10 +15,6 @@
 
 <!-- 页面内容 -->
 <view class="page-container">
-  <!-- 消息按钮 -->
-  <!-- <view class="message-icon-container">
-    <image class="message-icon" src="/images/index/message.svg" />
-  </view> -->
 
   <!-- 轮播图 -->
   <swiper class="carousel" autoplay interval="3000" circular>

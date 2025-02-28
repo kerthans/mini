@@ -4,5 +4,10 @@ App({
     onLaunch: function() {
         Page = page;
     },
-    //globalData: {}
+    globalData: {
+      auth: {  // 初始化 auth 对象
+        showModal: false,
+        session: null
+      }
+    }
 })

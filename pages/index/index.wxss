@@ -17,20 +17,6 @@ button:active {
   touch-action: none; /* 禁用触摸滚动 */
 }
 
-/* 消息图标 */
-.message-icon-container {
-  position: absolute;
-  margin-top: 105rpx;
-  left: 30rpx;
-  z-index: 999;
-}
-
-/* 信息按钮的图片 */
-.message-icon {
-  width: 53.42rpx;
-  height: 53.42rpx;
-}
-
 /* 轮播图 */
 .carousel {
   height: 40vh;

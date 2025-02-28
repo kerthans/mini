@@ -10,12 +10,54 @@ Page({
       signature: '不是哥们你',
       // 用于存储用户头像的 URL
       avatarUrl: '',
+      // 真实姓名选中状态
+      isNameFocused: false,
+      // 联系方式选中状态
+      isPhoneFocused: false,
+      // 个人签名选中状态
+      isMottoFocused: false,
   },
 
   // 页面加载时触发的生命周期函数
   onLoad: function () {
       // 调用 fetchAvatar 方法，在页面加载时请求用户的头像
       this.fetchAvatar();
+  },
+
+  onNameFocused : function() {
+    this.setData({
+      isNameFocused: true
+    });
+  },
+
+  onNameBlur : function() {
+    this.setData({
+      isNameFocused: false
+    });
+  },
+
+  onPhoneFocused : function() {
+    this.setData({
+      isPhoneFocused: true
+    });
+  },
+
+  onPhoneBlur : function() {
+    this.setData({
+      isPhoneFocused: false
+    });
+  },
+
+  onMottoFocused : function() {
+    this.setData({
+      isMottoFocused: true
+    });
+  },
+
+  onMottoBlur : function() {
+    this.setData({
+      isMottoFocused: false
+    });
   },
 
   // 向后端请求用户头像 URL 的方法

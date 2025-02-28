@@ -7,7 +7,16 @@
     "pages/publicity_work_page/publicity_work_page",
     "pages/base_management_work_page/base_management_work_page",
     "pages/operation_maintenance_work_page/operation_maintenance_work_page",
-    "pages/project_work_page/project_work_page"
+    "pages/project_work_page/project_work_page",
+    "pages/task/task",
+    "pages/schedule/schedule",
+    "pages/activity_submit/activity_submit",
+    "pages/xiumi/xiumi",
+    "pages/3D/3D",
+    "pages/MyPoints/MyPoints",
+    "pages/activitydetail/activitydetail",
+    "pages/activity_list/activity_list",
+    "components/auth-modal/auth-modal"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,7 +26,7 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "navBar": "/components/navBar/navBar"
+    
   },
   "style": "v2",
   "componentFramework": "glass-easel",

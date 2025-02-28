@@ -1,0 +1,27 @@
+<!--components/auth-modal/auth-modal.wxml-->
+<view class="auth-modal" wx:if="{{show}}">
+  <view class="modal-mask"></view>
+  
+  <view class="modal-container">
+    <image src="/images/logo.png" class="modal-icon" />
+    
+    <view class="modal-content">
+      <text class="title">需要您的授权</text>
+      <text class="desc">请授权以使用完整功能</text>
+    </view>
+
+    <view class="button-group">
+      <button 
+        class="btn cancel" 
+        bindtap="handleCancel"
+        hover-class="btn-hover"
+      >暂不授权</button>
+      
+      <button 
+        class="btn confirm" 
+        bindtap="handleConfirm"
+        hover-class="btn-hover"
+      >立即授权</button>
+    </view>
+  </view>
+</view>
