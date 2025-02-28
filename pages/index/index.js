@@ -1,20 +1,51 @@
 // index.js
-var loginJS = require("../../API/login.js");
+const loginJS = require("../../API/login.js");
+const { 
+  TOKEN_KEY,
+  USER_INFO_KEY 
+} = require("../../API/login.js"); 
+
 Page({
   data: {
     activeTab: 'index', // 当前页面为首页
     showAuthModal: false,
-    hasUserInfo: false
+    hasUserInfo: !!wx.getStorageSync('userInfo')
   },
 
-  onLoad() {
-    console.log('[Page] 初始化授权检查');
-    // 初始化时检查本地存储
-    const userInfo = wx.getStorageSync('userInfo');
-    if (userInfo) {
-      console.log('[Auth] 发现本地用户信息');
-      this.setData({ hasUserInfo: true });
-    }
+  onShow: function() {
+    console.log('[Page] 初始化令牌检查');
+
+    loginJS.checkTokenValidity()
+      .then(token => {
+        console.log('[Page] 令牌状态正常，token =', token);
+        this.setData({ hasUserInfo: true });
+      })
+      .catch(err => {
+        console.warn('[Page] 令牌验证错误:', err);
+        this.setData({ hasUserInfo: false });
+        // 如果在 index 页面需要提示用户授权，这里可以增加相应处理逻辑
+      });
+  },
+
+  /**
+   * 用户点击授权按钮时调用，显示授权弹窗
+   */
+  showAuthModal: function() {
+    console.log('[Page] 显示授权弹窗');
+    wx.showModal({
+      title: '提示',
+      content: '授权以使用完整功能，是否同意授权？',
+      confirmText: '同意',
+      cancelText: '拒绝',
+      success: (res) => {
+        if (res.confirm) {
+          loginJS.handleUserAuth(true);
+        } else {
+          console.log('[Page] 用户拒绝授权');
+          wx.showToast({ title: '功能需要授权才能使用', icon: 'none' });
+        }
+      }
+    });
   },
 
   // 点击底部导航项时调用
@@ -46,33 +77,6 @@ Page({
     // 使用 wx.redirectTo 或 wx.reLaunch 进行页面跳转，防止页面堆栈积累
     wx.redirectTo({
       url: url
-    });
-  },
-
-  // 新增授权弹窗控制
-  showAuthModal: function() {
-    // 直接调用已有防护机制的 getUserInfo
-    loginJS.getUserInfo().catch(err => {
-      if (err === 'REQUEST_IN_PROGRESS') {
-        console.log('[Auth] 已有授权请求进行中，阻止重复弹窗');
-        return;
-      }
-      
-    });
-    console.log('[Auth] 显示授权提示');
-    wx.showModal({
-      title: '提示',
-      content: '授权以使用完整功能，授权后将获取您的用户信息，是否同意？',
-      confirmText: '同意',
-      cancelText: '拒绝',
-      success: (res) => {
-        if (res.confirm) {
-          loginJS.handleUserAuth(res.confirm);
-        } else {
-          console.log('[Auth] 用户拒绝授权');
-          wx.showToast({ title: '功能需要授权才能使用', icon: 'none' });
-        }
-      }
     });
   },
 
