@@ -120,7 +120,7 @@ Page({
                   name: 'avatar',
                   header: {
                     "Authorization": `Bearer ${authToken}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "multipart/form-data"
                   },
                   formData:{
                     'real_name': realName,
@@ -194,45 +194,45 @@ Page({
       });
   },
 
-  // 保存用户更改的方法
-  saveChanges: function () {
-    const { realName, contact, signature } = this.data;
-    wx.request({
-        url: 'https://your-api-endpoint.com/save-profile', // 替换为实际的保存接口地址
-        method: 'POST',
-        data: {
-            realName,
-            contact,
-            signature
-        },
-        success: (res) => {
-            if (res.data && res.data.success) {
-                wx.showToast({
-                    title: '保存成功',
-                    icon: 'success',
-                    duration: 2000
-                });
-                setTimeout(() => {
-                    wx.navigateBack({
-                        delta: 1
-                    });
-                }, 2000);
-            } else {
-                wx.showToast({
-                    title: '保存失败，请稍后再试',
-                    icon: 'none'
-                });
-            }
-        },
-        fail: (err) => {
-            console.error('保存用户信息失败:', err);
-            wx.showToast({
-                title: '保存失败，请稍后再试',
-                icon: 'none'
-            });
-        }
-    });
-},
+//   // 保存用户更改的方法
+//   saveChanges: function () {
+//     const { realName, contact, signature } = this.data;
+//     wx.request({
+//         url: 'https://your-api-endpoint.com/save-profile', // 替换为实际的保存接口地址
+//         method: 'POST',
+//         data: {
+//             realName,
+//             contact,
+//             signature
+//         },
+//         success: (res) => {
+//             if (res.data && res.data.success) {
+//                 wx.showToast({
+//                     title: '保存成功',
+//                     icon: 'success',
+//                     duration: 2000
+//                 });
+//                 setTimeout(() => {
+//                     wx.navigateBack({
+//                         delta: 1
+//                     });
+//                 }, 2000);
+//             } else {
+//                 wx.showToast({
+//                     title: '保存失败，请稍后再试',
+//                     icon: 'none'
+//                 });
+//             }
+//         },
+//         fail: (err) => {
+//             console.error('保存用户信息失败:', err);
+//             wx.showToast({
+//                 title: '保存失败，请稍后再试',
+//                 icon: 'none'
+//             });
+//         }
+//     });
+// },
 
   // 返回上一页面的方法
   handlerGobackClick() {

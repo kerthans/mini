@@ -16,6 +16,7 @@
     "pages/MyPoints/MyPoints",
     "pages/activitydetail/activitydetail",
     "pages/activity_list/activity_list",
+    "pages/test/test",
     "components/auth-modal/auth-modal"
   ],
   "window": {

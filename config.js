@@ -1,4 +1,4 @@
-var host = "http://localhost:8000/api/v1/"
+var host = "https://mini.makershub.top/api/v1/"
 var config = {
   host,
   login_url: host + "users/wx-login",
