@@ -150,20 +150,20 @@ const handleUserAuth = (confirmed) => {
       }
       console.log('[Auth] 获取 code 成功:', res.code);
       wx.request({
-        url: 'https://mini.makershub.top/api/login',
+        url: 'http://127.0.0.1:8000/api/v1/users/wx-login',
         method: 'POST',
         data: { code: res.code },
         success: (response) => {
           console.log('[Auth] 后端响应:', response.data);
-          if (response.data.code === 200) {
-            const token = response.data.auth_token;
+          if (response.statusCode === 200 && response.data.code === 200) {
+            const token = response.data.data.token;
             console.log('[Auth] 后端返回令牌，token =', token);
             if (getApp().globalData.authResolver) {
               getApp().globalData.authResolver.resolve(token);
             }
             wx.reLaunch({ url: '/pages/index/index' });
           } else {
-            console.warn('[Auth] 后端返回错误代码:', response.data.code);
+            console.warn('[Auth] 后端返回错误代码:', response.data.data.code);
             if (getApp().globalData.authResolver) {
               getApp().globalData.authResolver.reject('LOGIN_FAILED');
             }
