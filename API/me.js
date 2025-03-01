@@ -1,6 +1,6 @@
 // utils/api.js (建议的独立接口文件路径)
 // const app = getApp()
-
+var config = wx.getStorageSync('config');
 /**
  * 通用用户数据获取方法
  * @param {Object} page 页面实例对象

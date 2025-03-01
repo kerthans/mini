@@ -1,3 +1,5 @@
+const config = wx.getStorageSync('config');
+const authToken = wx.getStorageSync('auth_token');
 // 我的编辑页面
 Page({
   // 页面的数据对象，用于存储页面需要展示和使用的数据
@@ -6,8 +8,6 @@ Page({
       realName: '猫猫××',
       // 默认的联系方式，显示为 '1234567890'
       contact: '1234567890',
-      // 默认的个人签名，显示为 '不是哥们你'
-      signature: '不是哥们你',
       // 用于存储用户头像的 URL
       avatarUrl: '',
       // 真实姓名选中状态
@@ -65,7 +65,7 @@ Page({
       // 调用微信小程序的 wx.request 方法向后端发送请求
       wx.request({
           // 后端接口的地址，需要替换为实际的接口地址
-          url: 'https://your-api-endpoint.com/get-avatar',
+          url: config.user_profile,
           // 请求方法为 GET
           method: 'GET',
           // 请求成功时的回调函数
@@ -95,14 +95,14 @@ Page({
       });
   },
 
-  // 编辑用户头像的方法
+  // 更新用户个人信息
   editAvatar: function () {
       // 调用微信小程序的 wx.chooseImage 方法，让用户选择图片
-      wx.chooseImage({
+      wx.chooseMedia({
           // 允许选择的图片数量为 1 张
           count: 1,
           // 可以选择原图或压缩图
-          sizeType: ['original', 'compressed'],
+          mediaType: ['image'],
           // 图片来源可以是相册或拍照
           sourceType: ['album', 'camera'],
           // 用户选择图片成功时的回调函数
@@ -113,11 +113,19 @@ Page({
               // 调用微信小程序的 wx.uploadFile 方法将图片上传到服务器
               wx.uploadFile({
                   // 上传图片的后端接口地址，需要替换为实际的接口地址
-                  url: 'https://your-api-endpoint.com/upload-avatar',
+                  url: config.user_profile,
                   // 要上传的图片的临时文件路径
                   filePath: tempFilePath,
                   // 后端接收文件的字段名
                   name: 'avatar',
+                  header: {
+                    "Authorization": `Bearer ${authToken}`,
+                    "Content-Type": "application/json"
+                  },
+                  formData:{
+                    'real_name': realName,
+                    'phone_number': contact,
+                  },
                   // 上传成功时的回调函数
                   success: (uploadRes) => {
                       // 解析后端返回的 JSON 数据
@@ -155,7 +163,7 @@ Page({
           fail: () => {
               // 显示选择图片失败的提示信息
               wx.showToast({
-                  title: '选择图片失败，请重试',
+                  title: '选择失败，请重试',
                   icon: 'none',
               });
           }

@@ -46,6 +46,8 @@ const checkTokenValidity = () => {
     const token = getAuthToken();
     if (token) {
       console.log('[Auth] 发现本地令牌，token =', token);
+      authInProgress = false;
+      resolve(token);
       // console.log('[Auth] 发现本地令牌，尝试验证有效性，token =', token);
       // validateToken(token)
       //   .then((res) => {
@@ -150,7 +152,7 @@ const handleUserAuth = (confirmed) => {
       }
       console.log('[Auth] 获取 code 成功:', res.code);
       wx.request({
-        url: 'https://mini.makershub.top/api/v1/users/wx-login',
+        url: 'http://localhost:8000/api/v1/users/wx-login',
         method: 'POST',
         data: { code: res.code },
         success: (response) => {
