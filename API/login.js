@@ -22,15 +22,14 @@ function storeAuthToken(token) {
 /**
  * 清除本地令牌和用户信息
  */
-function removeAuthToken() {
-  wx.removeStorageSync(TOKEN_KEY);
-  wx.removeStorageSync(USER_INFO_KEY);
-}
+// function removeAuthToken() {
+//   wx.removeStorageSync(TOKEN_KEY);
+//   wx.removeStorageSync(USER_INFO_KEY);
+// }
 
 /**
  * 检查令牌有效性
- * 1. 如果本地存在令牌，则调用后端验证接口（验证 200 表示有效，401 表示失效）
- * 2. 如果本地无令牌或验证失败，则触发授权流程
+ * 如果本地无令牌或验证失败，则触发授权流程
  */
 const checkTokenValidity = () => {
   console.log('[Auth] 开始检查授权状态');
@@ -46,20 +45,21 @@ const checkTokenValidity = () => {
 
     const token = getAuthToken();
     if (token) {
-      console.log('[Auth] 发现本地令牌，尝试验证有效性，token =', token);
-      validateToken(token)
-        .then((res) => {
-          console.log('[Auth] 令牌验证通过，res =', res);
-          authInProgress = false;
-          resolve(token);
-        })
-        .catch((err) => {
-          console.warn('[Auth] 令牌验证失败，错误:', err);
-          authInProgress = false;
-          // 清除本地令牌后触发授权流程
-          removeAuthToken();
-          triggerAuthFlow(resolve, reject);
-        });
+      console.log('[Auth] 发现本地令牌，token =', token);
+      // console.log('[Auth] 发现本地令牌，尝试验证有效性，token =', token);
+      // validateToken(token)
+      //   .then((res) => {
+      //     console.log('[Auth] 令牌验证通过，res =', res);
+      //     authInProgress = false;
+      //     resolve(token);
+      //   })
+      //   .catch((err) => {
+      //     console.warn('[Auth] 令牌验证失败，错误:', err);
+      //     authInProgress = false;
+      //     // 清除本地令牌后触发授权流程
+      //     removeAuthToken();
+      //     triggerAuthFlow(resolve, reject);
+      //   });
     } else {
       console.log('[Auth] 本地无令牌，需要授权');
       triggerAuthFlow(resolve, reject);
@@ -73,32 +73,32 @@ const checkTokenValidity = () => {
  * 调用后端接口验证令牌有效性
  * 后端返回 200 表示令牌有效，401 表示令牌失效
  */
-const validateToken = (token) => {
-  console.log('[Auth] validateToken: 开始验证令牌，token =', token);
-  return new Promise((resolve, reject) => {
-    wx.request({
-      url: 'https://mini.makershub.top/api/validate_token',
-      header: { 'Authorization': `Bearer ${token}` },
-      success: (res) => {
-        console.log('[Auth] validateToken: 请求成功，响应 =', res);
-        if (res.statusCode === 200) {
-          console.log('[Auth] validateToken: 令牌有效');
-          resolve(res.data);
-        } else if (res.statusCode === 401) {
-          console.warn('[Auth] validateToken: 令牌已失效，状态码:', res.statusCode);
-          reject('TOKEN_INVALID');
-        } else {
-          console.warn('[Auth] validateToken: 令牌验证失败，状态码:', res.statusCode);
-          reject('TOKEN_VALIDATION_FAILED');
-        }
-      },
-      fail: (err) => {
-        console.error('[Auth] validateToken: 请求失败，错误 =', err);
-        reject(err);
-      }
-    });
-  });
-};
+// const validateToken = (token) => {
+//   console.log('[Auth] validateToken: 开始验证令牌，token =', token);
+//   return new Promise((resolve, reject) => {
+//     wx.request({
+//       url: 'https://mini.makershub.top/api/validate_token',
+//       header: { 'Authorization': `Bearer ${token}` },
+//       success: (res) => {
+//         console.log('[Auth] validateToken: 请求成功，响应 =', res);
+//         if (res.statusCode === 200) {
+//           console.log('[Auth] validateToken: 令牌有效');
+//           resolve(res.data);
+//         } else if (res.statusCode === 401) {
+//           console.warn('[Auth] validateToken: 令牌已失效，状态码:', res.statusCode);
+//           reject('TOKEN_INVALID');
+//         } else {
+//           console.warn('[Auth] validateToken: 令牌验证失败，状态码:', res.statusCode);
+//           reject('TOKEN_VALIDATION_FAILED');
+//         }
+//       },
+//       fail: (err) => {
+//         console.error('[Auth] validateToken: 请求失败，错误 =', err);
+//         reject(err);
+//       }
+//     });
+//   });
+// };
 
 /**
  * 触发授权流程
