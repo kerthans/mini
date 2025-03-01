@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/club_work/club_work",
+          "pathName": "pages/club_work/club_work",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/base_management_work_page/base_management_work_page",
           "pathName": "pages/base_management_work_page/base_management_work_page",
           "query": "",

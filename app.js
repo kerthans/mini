@@ -9,5 +9,6 @@ App({
         showModal: false,
         session: null
       }
-    }
+    },
+
 })
