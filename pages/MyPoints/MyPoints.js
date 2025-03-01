@@ -114,185 +114,64 @@ Page({
     });
   },
 
-
-  // 获取用户信息并提取积分（score），默认0
-  getUserProfile: function(userid) {
-    this.setData({ loading: true }); // 设置加载状态
-    wx.request({
-      url: `https://yourserver.com/api/users/profile/${userid}`, // 后端接口地址
-      method: "GET",
-      success: (res) => {
-        if (res.statusCode === 200 && res.data.code === 200) {
-          const userScore = res.data.data.score; // 从返回数据中提取积分（score）
-          this.setData({
-            score: userScore, // 更新积分（score）
-            loading: false
-          });
-        } else {
-          this.setData({ loading: false });
-          wx.showToast({
-            title: res.data.message || "获取积分失败，请稍后重试",
-            icon: "none"
-          });
-        }
-      },
-      fail: (err) => {
-        console.error("获取用户信息失败", err);
-        this.setData({ loading: false });
-        wx.showToast({
-          title: "网络请求失败，请检查网络连接",
-          icon: "none"
-        });
-      }
-    });
-  },
-
-// 将日期字符串从 "2024-02-13 14:30:00" 转换为 "2023.11.13"
-formatDate: function(dateString) {
-  const date = new Date(dateString); // 解析日期字符串
-  const year = date.getFullYear(); // 获取年份
-  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 获取月份，+1 是因为月份从0开始
-  const day = date.getDate().toString().padStart(2, '0'); // 获取日期
-  return `${year}.${month}.${day}`; // 按照 "年.月.日" 的格式返回
-},
-
-// 根据 apply_id 的前两个字母返回对应的 name （兑换项目名称）
-getNameFromApplyId: function(apply_id) {
-  const prefix = apply_id.substring(0, 2).toUpperCase(); // 提取前两个字母并转为大写
-  let name = ''; // 默认值为空字符串
-
-  switch (prefix) {
-    case '3D':
-      name = '3D打印';
-      break;
-    case 'CL':
-      name = '清洁服务';
-      break;
-    // 根据需要继续添加其他前缀的匹配规则
-    default:
-      name = '未知服务'; // 如果没有匹配到，设置为默认值
-  }
-
-  return name;
-},
-
-// 获取兑换历史记录
-getExchangeHistory: function(userid) {
-  this.setData({ loading: true }); // 设置加载状态为 true，表示正在加载数据
-
-  // 调用后端接口获取兑换历史
-  wx.request({
-    url: `https://yourserver.com/api/3d_print/history/${userid}`, // 后端接口地址，需要替换为实际的接口
-    method: "GET", // 使用 GET 方法请求数据
-    success: (res) => {
-      // 检查响应状态码和返回的数据是否符合预期
-      if (res.statusCode === 200 && res.data.code === 200) {
-        // 过滤并处理返回的记录
-        const records = res.data.data.records
-          .filter(record => record.state === 1) // 只保留状态为 1 的记录，即审核通过的兑换成功的记录
-          .map(record => {
-            // 调用 getNameFromApplyId 函数动态设置 serviceName
-            const serviceName = this.getNameFromApplyId(record.apply_id);
-
-            // 返回处理后的记录对象
-            return {
-              apply_id: record.apply_id, // 申请 ID
-              name: serviceName, // 使用函数返回值设置 name
-              time: this.formatDate(record.created_at), // 调用 formatDate 方法格式化时间
-              details: `用量: ${record.quantity}g`,// 打印机: ${record.printer === 1 ? '二基楼B101' : 'i创街'}`, //可添加
-              pointsUsed: record.score_change, // 使用的积分
-              image: '/assets/points/3d_printer.png' // 默认图片路径
-            };
-          });
-
-        // 将处理后的记录存储到页面的 data 中
-        this.setData({
-          history: records, // 更新 history 数据
-          loading: false // 设置加载状态为 false，表示加载完成
-        });
-        
-        // 动态加载历史记录的图片
-        this.loadHistoryImages();
-
-      } else {
-        // 如果接口返回的状态码或数据不符合预期，提示用户
-        this.setData({ loading: false }); // 设置加载状态为 false
-        wx.showToast({
-          title: res.data.message || "获取兑换历史失败，请稍后重试",
-          icon: "none"
-        });
-      }
-    },
-    fail: (err) => {
-      // 如果请求失败，提示用户并记录错误
-      console.error("获取兑换历史失败", err);
-      this.setData({ loading: false }); // 设置加载状态为 false
-      wx.showToast({
-        title: "网络请求失败，请检查网络连接",
-        icon: "none"
-      });
-    }
-  });
-},
-
-
   // 动态加载积分兑换选项的图片资源
-  loadItemImages: function() {
-    const items = this.data.items;
-    items.forEach((item,index) => {
-      this.getResourceImage(item.id).then((imageUrl) => {
-        this.setData({
-          [`items[${index}].image`]: imageUrl // 更新图片路径
-        });
-      }).catch(() => {
-        console.warn(`图片加载失败，使用默认图片: ${item.image}`);
-      });
-      this.setData({
-        [`items[${index}].image`]: item.image // 使用默认图片路径
-      });
-    });
-  },
+  // loadItemImages: function() {
+  //   const items = this.data.items;
+  //   items.forEach((item,index) => {
+  //     this.getResourceImage(item.id).then((imageUrl) => {
+  //       this.setData({
+  //         [`items[${index}].image`]: imageUrl // 更新图片路径
+  //       });
+  //     }).catch(() => {
+  //       console.warn(`图片加载失败，使用默认图片: ${item.image}`);
+  //     });
+  //     this.setData({
+  //       [`items[${index}].image`]: item.image // 使用默认图片路径
+  //     });
+  //   });
+  // },
+
 
   // 动态加载兑换历史的图片资源,根据index/get数据顺序排列（？）
-  loadHistoryImages: function() {
-    const history = this.data.history;
-    history.forEach((item,index) => {
-      this.getResourceImage(item.id).then((imageUrl) => {
-        this.setData({
-          [`history[${index}].image`]: imageUrl // 更新图片路径
-        });
-      }).catch(() => {
-        console.warn(`图片加载失败，使用默认图片: ${item.image}`);
-      });
-    });
-  },
+  // loadHistoryImages: function() {
+  //   const history = this.data.history;
+  //   history.forEach((item,index) => {
+  //     this.getResourceImage(item.id).then((imageUrl) => {
+  //       this.setData({
+  //         [`history[${index}].image`]: imageUrl // 更新图片路径
+  //       });
+  //     }).catch(() => {
+  //       console.warn(`图片加载失败，使用默认图片: ${item.image}`);
+  //     });
+  //   });
+  // },
 
   // 获取单个资源图片 （用于动态获取）
-  getResourceImage: function(id) {
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: `https://yourserver.com/api/resources/get/${id}`, // 图片资源接口
-        method: "GET",
-        success: (res) => {
-          if (res.statusCode === 200 && res.data.code === 200) {
+  // getResourceImage: function(id) {
+  //   return new Promise((resolve, reject) => {
+  //     wx.request({
+  //       url: `https://yourserver.com/api/resources/get/${id}`, // 图片资源接口
+  //       method: "GET",
+  //       success: (res) => {
+  //         if (res.statusCode === 200 && res.data.code === 200) {
         
-            /*如果后端传来的data64不完整:
-            const base64Data = res.data.data.data; // 获取 Base64 编码的图片数据
-            const mimeType = res.data.data.filetype; // 获取图片的 MIME 类型
-            resolve(`data:${mimeType};base64,${base64Data}`); // 构造 Base64 图片路径*/  
-            const imageUrl = res.data.data.data; // 直接使用后端返回的 Base64 数据
-          resolve(imageUrl);
-          } else {
-            reject(res.data.message || "获取图片失败");
-          }
-        },
-        fail: (err) => {
-          console.error("获取图片资源失败", err);
-          reject("网络请求失败");
-        }
-      });
-    });
-  },
+  //           /*如果后端传来的data64不完整:
+  //           const base64Data = res.data.data.data; // 获取 Base64 编码的图片数据
+  //           const mimeType = res.data.data.filetype; // 获取图片的 MIME 类型
+  //           resolve(`data:${mimeType};base64,${base64Data}`); // 构造 Base64 图片路径*/  
+  //           const imageUrl = res.data.data.data; // 直接使用后端返回的 Base64 数据
+  //         resolve(imageUrl);
+  //         } else {
+  //           reject(res.data.message || "获取图片失败");
+  //         }
+  //       },
+  //       fail: (err) => {
+  //         console.error("获取图片资源失败", err);
+  //         reject("网络请求失败");
+  //       }
+  //     });
+  //   });
+  // },
 
    // 切换标签页
    changeItem:function(e){

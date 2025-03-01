@@ -9,7 +9,7 @@ Page({
 
   onLoad() {
     console.log('[Page] 初始化授权检查');
-    // 初始化时检查本地存储
+    // 初始化时检查本地存储  i；il
     const userInfo = wx.getStorageSync('userInfo');
     if (userInfo) {
       console.log('[Auth] 发现本地用户信息');
