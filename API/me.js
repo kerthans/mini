@@ -19,7 +19,7 @@ function fetchUserData(page, successCallback, failCallback) {
   wx.showLoading({ title: '加载中...' })
 
   wx.request({
-    url: 'https://mini.makershub.top/api/users/profile',
+    url: config.profile_url,
     header: {
       "Authorization": `Bearer ${authToken}`,
       "Content-Type": "application/json"

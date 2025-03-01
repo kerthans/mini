@@ -77,7 +77,8 @@ const validateToken = (token) => {
   console.log('[Auth] validateToken: 开始验证令牌，token =', token);
   return new Promise((resolve, reject) => {
     wx.request({
-      url: 'https://mini.makershub.top/api/validate_token',
+      // 待定api，因为许工没给我们
+      url: 'https://mini.makershub.top/api/v1/validate_token',
       header: { 'Authorization': `Bearer ${token}` },
       success: (res) => {
         console.log('[Auth] validateToken: 请求成功，响应 =', res);
@@ -150,7 +151,7 @@ const handleUserAuth = (confirmed) => {
       }
       console.log('[Auth] 获取 code 成功:', res.code);
       wx.request({
-        url: 'http://127.0.0.1:8000/api/v1/users/wx-login',
+        url: 'https://mini.makershub.top/api/v1/users/wx-login',
         method: 'POST',
         data: { code: res.code },
         success: (response) => {
