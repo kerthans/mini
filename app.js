@@ -1,7 +1,10 @@
 //app.js
+import config from './config';
 import page from './utils/page';
+
 App({
     onLaunch: function() {
+      wx.setStorageSync("config", config);
         Page = page;
     },
     globalData: {
