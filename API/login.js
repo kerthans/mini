@@ -20,14 +20,6 @@ function storeAuthToken(token) {
 }
 
 /**
- * 清除本地令牌和用户信息
- */
-// function removeAuthToken() {
-//   wx.removeStorageSync(TOKEN_KEY);
-//   wx.removeStorageSync(USER_INFO_KEY);
-// }
-
-/**
  * 检查令牌有效性
  * 如果本地无令牌或验证失败，则触发授权流程
  */
@@ -48,20 +40,6 @@ const checkTokenValidity = () => {
       console.log('[Auth] 发现本地令牌，token =', token);
       authInProgress = false;
       resolve(token);
-      // console.log('[Auth] 发现本地令牌，尝试验证有效性，token =', token);
-      // validateToken(token)
-      //   .then((res) => {
-      //     console.log('[Auth] 令牌验证通过，res =', res);
-      //     authInProgress = false;
-      //     resolve(token);
-      //   })
-      //   .catch((err) => {
-      //     console.warn('[Auth] 令牌验证失败，错误:', err);
-      //     authInProgress = false;
-      //     // 清除本地令牌后触发授权流程
-      //     removeAuthToken();
-      //     triggerAuthFlow(resolve, reject);
-      //   });
     } else {
       console.log('[Auth] 本地无令牌，需要授权');
       triggerAuthFlow(resolve, reject);
@@ -71,36 +49,6 @@ const checkTokenValidity = () => {
   return promise;
 };
 
-/**
- * 调用后端接口验证令牌有效性
- * 后端返回 200 表示令牌有效，401 表示令牌失效
- */
-// const validateToken = (token) => {
-//   console.log('[Auth] validateToken: 开始验证令牌，token =', token);
-//   return new Promise((resolve, reject) => {
-//     wx.request({
-//       url: 'https://mini.makershub.top/api/validate_token',
-//       header: { 'Authorization': `Bearer ${token}` },
-//       success: (res) => {
-//         console.log('[Auth] validateToken: 请求成功，响应 =', res);
-//         if (res.statusCode === 200) {
-//           console.log('[Auth] validateToken: 令牌有效');
-//           resolve(res.data);
-//         } else if (res.statusCode === 401) {
-//           console.warn('[Auth] validateToken: 令牌已失效，状态码:', res.statusCode);
-//           reject('TOKEN_INVALID');
-//         } else {
-//           console.warn('[Auth] validateToken: 令牌验证失败，状态码:', res.statusCode);
-//           reject('TOKEN_VALIDATION_FAILED');
-//         }
-//       },
-//       fail: (err) => {
-//         console.error('[Auth] validateToken: 请求失败，错误 =', err);
-//         reject(err);
-//       }
-//     });
-//   });
-// };
 
 /**
  * 触发授权流程
@@ -108,23 +56,29 @@ const checkTokenValidity = () => {
  */
 const triggerAuthFlow = (resolve, reject) => {
   console.log('[Auth] triggerAuthFlow: 开始触发授权流程');
-  const app = getApp();
-  app.globalData.showAuthModal = true;
-  console.log('[Auth] triggerAuthFlow: 设置 globalData.showAuthModal = true');
-  app.globalData.authResolver = {
-    resolve: (token) => {
-      console.log('[Auth] triggerAuthFlow: 用户授权成功，token =', token);
-      authInProgress = false;
-      storeAuthToken(token);
-      resolve(token);
+  // 直接显示弹窗
+ wx.showModal({
+    title: '授权提示',
+    content: '需要授权以使用完整功能',
+    confirmText: '同意',
+    cancelText: '拒绝',
+    success: (res) => {
+      if (res.confirm) {
+        console.log('[Auth] 用户同意授权');
+        // 用户同意，继续执行微信登录
+        handleUserAuth(true);
+      } else {
+        console.log('[Auth] 用户拒绝授权');
+        authInProgress = false;
+        reject('USER_DENIED');
+      }
     },
-    reject: (err) => {
-      console.warn('[Auth] triggerAuthFlow: 用户授权失败，错误 =', err);
+    fail: (err) => {
+      console.error('[Auth] 弹窗显示失败:', err);
       authInProgress = false;
-      reject(err);
+      reject('MODAL_ERROR');
     }
-  };
-  console.log('[Auth] triggerAuthFlow: 已设置全局 authResolver =', app.globalData.authResolver);
+  });
 };
 
 /**
