@@ -1,4 +1,6 @@
 // pages/activity/activity.js
+const token = wx.getStorageSync('auth_token');
+
 Page({
   data: {
     // 初始化格式化的时间对象

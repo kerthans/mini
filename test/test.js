@@ -7,12 +7,12 @@ Page({
 
   // 健康检查
   healthCheck() {
-    this.requestTest('https://mini.makershub.top/health', 'healthData')
+    this.requestTest('http://47.109.201.165/health', 'healthData')
   },
 
   // 基础检查
   basicCheck() {
-    this.requestTest('https://mini.makershub.top/', 'basicData')
+    this.requestTest('http://47.109.201.165/', 'basicData')
   },
 
   // test.js - 修改 requestTest 方法

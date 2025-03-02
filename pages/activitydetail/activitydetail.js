@@ -1,3 +1,5 @@
+const token = wx.getStorageSync('auth_token');
+
 Page({
   data: {
     apiData: {
