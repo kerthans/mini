@@ -1,20 +1,21 @@
 Page({
   data: {
     apiData: {
-      event_id: 11,
-      event_name: "活动名称",
-      poster: "/images/activitydetail/api.jpg",
-      description: "社团成员",
-      location: "location",
-      link: "link",
-      start_time: "start_time",
-      end_time: "end_time",
-      registration_deadline: "2025-1-24"
+      event_id: '',
+      event_name: '',
+      poster: '',
+      description: '',
+      location: '',
+      link: '',
+      start_time: '',
+      end_time: '',
+      registration_deadline: ''
     }
   },
 
-  onLoad() {
-    this.getDataFromAPI();
+  onLoad(options) {
+    const event_id = options.event_id;
+    this.getDataFromAPI(event_id);
   },
 
   handlerGobackClick() {
@@ -43,12 +44,13 @@ Page({
     });
   },
 
-  getDataFromAPI() {
+  getDataFromAPI(event_id) {
     wx.request({
-      url: "/api/events/view",  // 后端给的地址
+      url: config.activity_detail(event_id),  // 后端给的地址
       method: "GET",
       header: {
-        "content-type": "application/json"
+        'Authorization': `Bearer ${token}`,
+        'content-type': 'application/json'
       },
       success: (res) => {
         if (res.data.code === 200) {
@@ -57,7 +59,7 @@ Page({
           // 拼接正确路径
           data.poster = `/images/activitydetail/${data.poster}`;
           this.setData({
-            apiData: res.data.data
+            apiData: res.data.data /*需要后端保证跟我们apiData数据结构的一模一样 */
           });
         } else {
           wx.showToast({

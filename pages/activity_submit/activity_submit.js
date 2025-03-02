@@ -267,9 +267,12 @@ Page({
     
       // 发送请求
       wx.request({
-        url: 'https://your-backend-api.com/save',
+        url: config.activity_submit,
         method: 'POST',
-        header: { 'Content-Type': 'application/json' },
+        header: {
+          'Authorization': `Bearer ${token}`,
+          'content-type': 'application/json'
+        },
         data: postData,
         success(res) {
           if (res.statusCode === 200) {
