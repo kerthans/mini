@@ -1,15 +1,15 @@
-const config = wx.getStorageSync('config');
+// /pages/editPage/editPage
 const authToken = wx.getStorageSync('auth_token');
-// 我的编辑页面
+
 Page({
   // 页面的数据对象，用于存储页面需要展示和使用的数据
   data: {
       // 默认的真实姓名，显示为 '猫猫××'
-      realName: '猫猫××',
+      real_name: '猫猫××',
       // 默认的联系方式，显示为 '1234567890'
-      contact: '1234567890',
+      phone_num: '1234567890',
       // 用于存储用户头像的 URL
-      avatarUrl: '',
+      avatar: '',
       // 真实姓名选中状态
       isNameFocused: false,
       // 联系方式选中状态
@@ -19,9 +19,16 @@ Page({
   },
 
   // 页面加载时触发的生命周期函数
-  onLoad: function () {
-      // 调用 fetchAvatar 方法，在页面加载时请求用户的头像
-      this.fetchAvatar();
+  // 直接接收从个人主页返回过来的real_name和phone_num和avatar显示
+  onLoad: function (options) {
+    console.log('接收端:' + options.real_name);
+		console.log('接收端:' + options.phone_num);
+    console.log('接收端:' + options.avatar);
+    this.setData({
+      real_name: options.read_name,
+      phone_num: options.phone_num,
+      avatar: options.avatar,
+    })
   },
 
   onNameFocused : function() {
@@ -65,7 +72,7 @@ Page({
       // 调用微信小程序的 wx.request 方法向后端发送请求
       wx.request({
           // 后端接口的地址，需要替换为实际的接口地址
-          url: config.user_profile,
+          url: config.profile_url,
           // 请求方法为 GET
           method: 'GET',
           // 请求成功时的回调函数
@@ -123,8 +130,8 @@ Page({
                     "Content-Type": "multipart/form-data"
                   },
                   formData:{
-                    'real_name': realName,
-                    'phone_number': contact,
+                    'real_name': real_name,
+                    'phone_numb': phone_num,
                   },
                   // 上传成功时的回调函数
                   success: (uploadRes) => {
@@ -134,17 +141,17 @@ Page({
                       if (data && data.avatarUrl) {
                           // 使用 setData 方法更新页面数据中的 avatarUrl
                           this.setData({
-                              avatarUrl: data.avatarUrl,
+                              avatar: data.avatarUrl,
                           });
                           // 显示头像更新成功的提示信息
                           wx.showToast({
-                              title: '头像更新成功',
+                              title: '个人信息更新成功',
                               icon: 'success',
                           });
                       } else {
                           // 显示头像更新失败的提示信息
                           wx.showToast({
-                              title: '头像更新失败',
+                              title: '个人信息更新失败',
                               icon: 'none',
                           });
                       }
@@ -186,13 +193,6 @@ Page({
       });
   },
 
-  // 更新个人签名的方法，接收一个事件对象 e
-  updateSignature: function (e) {
-      // 使用 setData 方法更新页面数据中的 signature，值为输入框的当前值
-      this.setData({
-          signature: e.detail.value
-      });
-  },
 
 //   // 保存用户更改的方法
 //   saveChanges: function () {

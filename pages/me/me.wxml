@@ -17,7 +17,7 @@
   <!-- 显示用户姓名，姓名数据从 userInfo 对象的 name 属性中获取 -->
   <view class="userinfo">
    <view class="infoboxes">
-      <text class="user-name">{{userInfo.name}}</text>
+      <text class="user-name">{{userInfo.real_name}}</text>
        <!-- 包含用户联系电话信息的容器 -->
       <view class="box1" style="background-color: #FFE89E;">
       <!--电话图标-->

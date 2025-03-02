@@ -5,7 +5,8 @@ Page({
     isAssociationMember:0, // 判断是否是协会成员
     textToCopy: '这是要复制的文本',//用于复制的文本
     userInfo: {
-      username: '小 鳄 鱼',          // 用户名
+      avatar: '', // 头像
+      real_name: '',          // 用户名
       phone_num: '',         // 用户电话
       score: '',     // 积分
       role: '' // 用户身份，0是社团外人员，1是干事，2是部长
@@ -111,7 +112,7 @@ Page({
   // 封装页面跳转函数
   navigateToPage: function (url) {
     wx.navigateTo({
-      url: url,
+      url: url + '?avatar=' + avatar + '&real_name=' + real_name + '&phone_name=' + phone_num,
       fail: () => {
         wx.showToast({
           title: '页面跳转失败',
