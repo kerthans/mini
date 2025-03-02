@@ -2,7 +2,7 @@
 Page({
   data: {
     result: '',
-    url: 'https://mini.makershub.top/health',
+    url: 'http://47.109.201.165/health',
     testUrl: 'https://httpbin.org/get', // 公共测试API
     logs: []
   },

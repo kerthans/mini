@@ -210,6 +210,7 @@ Page({
       method: 'POST',
       data: formData,
       header: {
+        'Authorization': `Bearer ${token}`,
         'content-type': 'application/json'
       },
       success: (res) => {

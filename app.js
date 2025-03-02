@@ -4,16 +4,14 @@ import page from './utils/page';
 
 App({
     onLaunch: function() {
-      wx.setStorageSync("config", config);
         Page = page;
     },
     globalData: {
       auth: {  // 初始化 auth 对象
         showModal: false,
-        session: null
+        session: null,
+        config: config,
       },
-      showAuthModal: false,     // 明确授权弹窗状态
-      authResolver: null        // 明确授权回调
     },
     /**
      * 清除本地令牌和用户信息
