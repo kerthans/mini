@@ -152,7 +152,7 @@ const handleUserAuth = (confirmed) => {
       }
       console.log('[Auth] 获取 code 成功:', res.code);
       wx.request({
-        url: 'http://localhost:8000/api/v1/users/wx-login',
+        url: 'https://mini.makershub.top/api/v1/users/wx-login',
         method: 'POST',
         data: { code: res.code },
         success: (response) => {
