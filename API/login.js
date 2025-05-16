@@ -56,6 +56,23 @@ const checkTokenValidity = () => {
  */
 const triggerAuthFlow = (resolve, reject) => {
   console.log('[Auth] triggerAuthFlow: 开始触发授权流程');
+  // const app = getApp();
+  // app.globalData.showAuthModal = true;
+  // console.log('[Auth] triggerAuthFlow: 设置 globalData.showAuthModal = true');
+  // app.globalData.authResolver = {
+  //   resolve: (token) => {
+  //     console.log('[Auth] triggerAuthFlow: 用户授权成功，token =', token);
+  //     authInProgress = false;
+  //     storeAuthToken(token);
+  //     resolve(token);
+  //   },
+  //   reject: (err) => {
+  //     console.warn('[Auth] triggerAuthFlow: 用户授权失败，错误 =', err);
+  //     authInProgress = false;
+  //     reject(err);
+  //   }
+  // };
+  // console.log('[Auth] triggerAuthFlow: 已设置全局 authResolver =', app.globalData.authResolver);
   // 直接显示弹窗
  wx.showModal({
     title: '授权提示',
@@ -106,7 +123,7 @@ const handleUserAuth = (confirmed) => {
       }
       console.log('[Auth] 获取 code 成功:', res.code);
       wx.request({
-        url: 'https://mini.makershub.top/api/v1/users/wx-login',
+        url: 'http://47.109.201.165:8000/api/v1/users/wx-login',
         method: 'POST',
         data: { code: res.code },
         success: (response) => {
@@ -114,6 +131,7 @@ const handleUserAuth = (confirmed) => {
           if (response.statusCode === 200 && response.data.code === 200) {
             const token = response.data.data.token;
             console.log('[Auth] 后端返回令牌，token =', token);
+            storeAuthToken(token);
             if (getApp().globalData.authResolver) {
               getApp().globalData.authResolver.resolve(token);
             }

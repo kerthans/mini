@@ -2,7 +2,7 @@
 Page({
   data: {
     result: '',
-    url: 'http://47.109.201.165/health',
+    url: 'http://47.109.201.165:8000/health',
     testUrl: 'https://httpbin.org/get', // 公共测试API
     logs: []
   },
