@@ -26,8 +26,7 @@
     "pages/field_borrow/field_borrow",
     "pages/remote_control/remote_control",
     "pages/personal_stuff_borrow_apply/personal_stuff_borrow_apply",
-    "pages/site_borrow_list/site_borrow_list",
-    "pages/remote_control/remote_control"
+    "pages/site_borrow_list/site_borrow_list"
   ],
   "window": {
     "backgroundTextStyle": "light",
