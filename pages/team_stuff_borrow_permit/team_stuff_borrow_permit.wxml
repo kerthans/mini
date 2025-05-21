@@ -27,12 +27,6 @@
       <view class="form-input"></view>
     </view>
 
-    <!-- 专业 -->
-    <view class="form-item">
-      <text class="form-label">专业</text>
-      <view class="form-input"></view>
-    </view>
-
     <!-- 电话 -->
     <view class="form-item">
       <text class="form-label">电话</text>
@@ -74,7 +68,7 @@
     </view>
 
     <!-- 时间选择器组 -->
-    <!-- 举办时间 -->
+    <!-- 起借时间 -->
     <view class="time-group">
       <text class="form-label">起借时间</text>
       <view class="time-row">
@@ -87,7 +81,7 @@
       </view>
     </view>
 
-    <!-- 结束时间 -->
+    <!-- 归还时间 -->
     <view class="time-group">
       <text class="form-label">归还时间</text>
       <view class="time-row">
@@ -99,8 +93,8 @@
         <text class="form-label">日</text>
       </view>
     </view>
-
   </view>
+
   <view class="reply-container">
     <textarea class="form-input {{isLinkFocused ? 'focused' : ''}}" bindtap = "onLinkFocused" bindblur = "onLinkBlur" placeholder="若打回，请输入理由（不超过150字）" data-field="link" maxlength="150" ></textarea>
     <view class="reply-buttons">

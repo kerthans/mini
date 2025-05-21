@@ -55,8 +55,7 @@
       </view>
     </view>
 
-    <!-- 时间选择器组 -->
-    <!-- 举办时间 -->
+    <!-- 起借时间 -->
     <view class="time-group">
       <text class="form-label">起借时间</text>
       <view class="time-row">
@@ -69,7 +68,7 @@
       </view>
     </view>
 
-    <!-- 结束时间 -->
+    <!-- 归还时间 -->
     <view class="time-group">
       <text class="form-label">归还时间</text>
       <view class="time-row">
