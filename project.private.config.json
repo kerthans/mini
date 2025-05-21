@@ -11,11 +11,18 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/field_borrow/field_borrow",
-          "pathName": "pages/field_borrow/field_borrow",
+          "name": "pages/remote_control/remote_control",
+          "pathName": "pages/remote_control/remote_control",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/field_borrow/field_borrow",
+          "pathName": "pages/field_borrow/field_borrow",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/object_borrow/object_borrow",

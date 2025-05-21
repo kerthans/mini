@@ -1,6 +1,9 @@
 /* 整体页面背景 */
-page {
-  background: #222831;
+.page {
+  background-color: #222831;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 200rpx; /* 给 bottom image 留出空间，避免被内容遮挡 */
 }
 
 /* 容器 */
@@ -202,4 +205,13 @@ page {
   font-size: 22rpx;
   padding: 4rpx 12rpx;
   border-radius: 24rpx;
+}
+.bottom-image {
+  width: 440rpx;
+  height: 174rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
 }
