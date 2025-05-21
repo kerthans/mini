@@ -32,7 +32,7 @@
     <!-- 活动简介 -->
     <view class="form-item">
       <text class="form-label">活动简介</text>
-      <textarea class="form-input textarea {{isDescriptionFocused ? 'focused' : ''}}" bindtap = "onDescriptionFocused" bindblur = "onDescriptionBlur" placeholder="请输入活动简介" data-field="description" />
+      <textarea class="form-input textarea {{isDescriptionFocused ? 'focused' : ''}}" bindtap = "onDescriptionFocused" bindblur = "onDescriptionBlur" placeholder="请输入活动简介" data-field="description"></textarea>
     </view>
 
     <!-- 举办地点 -->

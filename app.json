@@ -17,7 +17,10 @@
     "pages/activitydetail/activitydetail",
     "pages/activity_list/activity_list",
     "pages/test/test",
-    "components/auth-modal/auth-modal"
+    "components/auth-modal/auth-modal",
+    "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
+    "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
+    "pages/site_borrow_permit/site_borrow_permit"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,9 +29,7 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "usingComponents": {
-    
-  },
+  "usingComponents": {},
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
