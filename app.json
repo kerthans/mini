@@ -20,7 +20,8 @@
     "components/auth-modal/auth-modal",
     "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
     "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
-    "pages/site_borrow_permit/site_borrow_permit"
+    "pages/site_borrow_permit/site_borrow_permit",
+    "pages/object_borrow/object_borrow"
   ],
   "window": {
     "backgroundTextStyle": "light",
