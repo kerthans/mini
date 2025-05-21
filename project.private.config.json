@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/team_stuff_borrow_apply/team_stuff_borrow_apply",
+          "pathName": "pages/team_stuff_borrow_apply/team_stuff_borrow_apply",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/MyPoints/MyPoints",
           "pathName": "pages/MyPoints/MyPoints",
           "query": "",
