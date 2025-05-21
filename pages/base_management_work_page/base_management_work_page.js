@@ -3,7 +3,7 @@ const token = wx.getStorageSync('auth_token');
 
 Page({
   data: {
-    role: 2 // 默认权限级别，需根据接口动态更新
+    level: 2 // 默认权限级别，需根据接口动态更新
   },
   
   onLoad() {

@@ -14,8 +14,8 @@
           "name": "pages/MyPoints/MyPoints",
           "pathName": "pages/MyPoints/MyPoints",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/field_borrow/field_borrow",

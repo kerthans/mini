@@ -1,7 +1,7 @@
 // index.js
 Page({
   data: {
-    level: 1 // 默认权限级别，需根据接口动态更新
+    level: 2 // 默认权限级别，需根据接口动态更新
   },
   
   onLoad() {
