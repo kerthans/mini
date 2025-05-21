@@ -1,6 +1,8 @@
+// pages/FieldApply/FieldApply.js
 Page({
   data: {
-    currentTab: 0,
+    tab: 0, // 用于切换显示哪一类申请
+    currentTab: 0, // 三个标签页：未审核、已通过、已归还
     sortText: '默认',
     currentSort: 'default',
     isFolded: true,
@@ -14,17 +16,55 @@ Page({
     currentList: []
   },
 
-  /* -------- tab -------- */
+  onLoad() {
+    this.updateCurrentList();
+  },
+
+  handlerGobackClick() {
+    wx.showModal({
+      title: '你点击了返回',
+      content: '是否确认返回',
+      success: e => {
+        if (e.confirm) {
+          const pages = getCurrentPages();
+          if (pages.length >= 2) {
+            wx.navigateBack({ delta: 1 });
+          } else {
+            wx.reLaunch({ url: '/pages/index/index' });
+          }
+        }
+      }
+    });
+  },
+
+  handlerGohomeClick() {
+    wx.reLaunch({ url: '/pages/index/index' });
+  },
+
+  // 切换顶部标签栏（积分兑换 vs 场地处理）
+  changeItem(e) {
+    const index = parseInt(e.currentTarget.dataset.item);
+    this.setData({ tab: index });
+  },
+
+  // swiper 切换同步 tab
+  onSwiperChange(e) {
+    this.setData({ tab: e.detail.current });
+  },
+
+  // 切换子 tab（三个状态）
   switchTab(e) {
     const idx = Number(e.currentTarget.dataset.index);
     if (idx === this.data.currentTab) return;
     this.setData({ currentTab: idx }, this.updateCurrentList);
   },
 
-  /* -------- 排序 -------- */
+  // 排序按钮点击
   toggleSortDropdown() {
     this.setData({ isFolded: !this.data.isFolded });
   },
+
+  // 选择排序方式
   selectSort(e) {
     const value = e.currentTarget.dataset.value;
     this.setData({
@@ -34,12 +74,14 @@ Page({
     }, this.sortCurrentList);
   },
 
-  /* -------- 列表更新 -------- */
+  // 根据 tab 更新显示的记录列表
   updateCurrentList() {
     const { currentTab, unreviewedList, approvedList, returnedList } = this.data;
     const list = [unreviewedList, approvedList, returnedList][currentTab] || [];
     this.setData({ currentList: list }, this.sortCurrentList);
   },
+
+  // 排序当前列表
   sortCurrentList() {
     const { currentSort, currentList } = this.data;
     if (currentSort === 'default') return;
@@ -51,7 +93,7 @@ Page({
     this.setData({ currentList: sorted });
   },
 
-  /* -------- 添加新记录接口 -------- */
+  // 添加新申请记录
   addRecordToList(newRecord, targetListName = 'unreviewedList') {
     const oldList = this.data[targetListName];
     const updatedList = [...oldList, newRecord];
@@ -67,13 +109,8 @@ Page({
     });
   },
 
-  /* -------- 跳转 -------- */
+  // 跳转到申请详情页
   navigateToDetail(e) {
     wx.navigateTo({ url: `/pages/detail/detail?event_id=${e.currentTarget.dataset.eventId}` });
-  },
-
-  /* -------- 页面加载时添加新记录示例 -------- */
-  onLoad() {
-    this.updateCurrentList();
-   }
+  }
 });
