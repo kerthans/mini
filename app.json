@@ -22,7 +22,7 @@
     "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
     "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
     "pages/site_borrow_permit/site_borrow_permit",
-    "pages/object_borrow/object_borrow",
+    "pages/object_borrow_list/object_borrow_list",
     "pages/site_borrow_list/site_borrow_list",
     "pages/remote_control/remote_control"
   ],

@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 顶部导航栏，包含页面标题和编辑图标 -->
   <navBar class="navbar"
-          title="场地申请处理"
+          title="借物申请处理"
           background="#222831"
           color="#fff"
           back="{{true}}"

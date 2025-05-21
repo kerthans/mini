@@ -11,6 +11,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/object_borrow_list/object_borrow_list",
+          "pathName": "pages/object_borrow_list/object_borrow_list",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
+        },
+        {
+          "name": "pages/site_borrow_list/site_borrow_list",
+          "pathName": "pages/site_borrow_list/site_borrow_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/site_borrow_list/site_borrow_list",
           "pathName": "pages/site_borrow_list/site_borrow_list",
           "query": "",
