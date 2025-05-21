@@ -54,5 +54,5 @@
     </view>
   </block>
 </view>
-<image class="bottom-image" src="/images/activity/white_cat.svg" mode="widthFix"></image>
+<image class="bottom-image" src="/images/object_borrow/white_cat.svg" mode="widthFix"></image>
 </view>
