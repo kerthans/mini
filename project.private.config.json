@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/site_borrow_list/site_borrow_list",
+          "pathName": "pages/site_borrow_list/site_borrow_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/team_stuff_borrow_apply/team_stuff_borrow_apply",
           "pathName": "pages/team_stuff_borrow_apply/team_stuff_borrow_apply",
           "query": "",
@@ -20,13 +27,6 @@
         {
           "name": "pages/MyPoints/MyPoints",
           "pathName": "pages/MyPoints/MyPoints",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/field_borrow/field_borrow",
-          "pathName": "pages/field_borrow/field_borrow",
           "query": "",
           "launchMode": "default",
           "scene": null

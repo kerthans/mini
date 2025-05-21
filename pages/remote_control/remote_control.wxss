@@ -74,6 +74,10 @@
   color: #000000;
 }
 
+.open-btn:active {
+  transform: scale(0.98);
+  filter:brightness(0.95);
+}
 
 .status {
   position: absolute;

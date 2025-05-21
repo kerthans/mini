@@ -111,6 +111,6 @@ Page({
 
   // 跳转到申请详情页
   navigateToDetail(e) {
-    wx.navigateTo({ url: `/pages/detail/detail?event_id=${e.currentTarget.dataset.eventId}` });
+    wx.navigateTo({ url: `/pages/site_borrow_permit/site_borrow_permit?event_id=${e.currentTarget.dataset.eventId}` });
   }
 });
