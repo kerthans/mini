@@ -1,0 +1,39 @@
+<view class="container">
+  <!-- 顶部自定义导航栏 -->
+  <navBar
+    class="nav"
+    title="远程控制"
+    background="#222831"
+    color="#fff"
+    back="{{true}}"
+    home="{{false}}"
+    iconTheme="white"
+    bindback="onBack"
+  />
+
+  <!-- 卡片区域 -->
+  <view class="card-list">
+    <view class="card">
+      <text class="room-name">二基楼B101</text>
+      <view class="control-row">
+        <image src="/images/activity/door_icon.svg" class="icon" />
+        <text class="word">门</text>
+        <button class="open-btn">开门</button>
+      </view>
+      <view class="status status-online">已运营</view>
+    </view>
+
+    <view class="card">
+      <text class="room-name">i创街工坊</text>
+      <view class="control-row">
+        <image src="/images/activity/door_icon.svg" class="icon" />
+        <text class="word">门</text>
+        <button class="open-btn">开门</button>
+      </view>
+      <view class="status status-offline">未运营</view>
+    </view>
+  </view>
+
+  <!-- 底部猫图 -->
+  <image class="bottom-cat" src="/images/activity/white_cat.svg" mode="widthFix" />
+</view>
