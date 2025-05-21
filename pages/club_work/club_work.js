@@ -1,4 +1,5 @@
 // club_work.js
+
 Page({
   handlerGobackClick() {
     wx.showModal({

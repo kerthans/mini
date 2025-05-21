@@ -1,0 +1,20 @@
+<!-- test.wxml -->
+<view class="container">
+  <view class="title">API连接诊断</view>
+  
+  <view class="button-group">
+    <button bindtap="testYourAPI">测试您的API</button>
+    <button bindtap="testPublicAPI">测试公共API</button>
+    <button bindtap="testHTTP">测试HTTP版本</button>
+  </view>
+  
+  <view class="logs">
+    <view class="section-title">请求日志</view>
+    <view wx:for="{{logs}}" wx:key="index" class="log-item">{{item}}</view>
+  </view>
+  
+  <view class="result" wx:if="{{result}}">
+    <view class="section-title">结果</view>
+    <text>{{result}}</text>
+  </view>
+</view>

@@ -1,0 +1,117 @@
+<!--pages/site_borrow_permit/site_borrow_permit.wxml-->
+
+<view class="container">
+  <navBar 
+    title='场地借用申请单' 
+    background='#222831' 
+    color='#fff' 
+    back="{{true}}" 
+    home="{{true}}" 
+    iconTheme='white'
+    bindback="handlerGobackClick" 
+    bindhome="handlerGohomeClick">
+  </navBar>
+
+  <view class="form-container">
+    <view class="form-header">场地借用申请单</view>
+
+    <!-- 姓名 -->
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 学号 -->
+    <view class="form-item">
+      <text class="form-label">学号</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 电话 -->
+    <view class="form-item">
+      <text class="form-label">电话</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 邮箱 -->
+    <view class="form-item">
+      <text class="form-label">邮箱</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 借用物资 -->
+    <view class="form-item">
+      <text class="form-label">借用用途</text>
+      <view class="form-input">
+        <text>准备2025年全国大学生物联网设计竞赛
+        </text>
+      </view>
+    </view>
+
+    <!-- 借用区域 -->
+    <view class="time-group">
+      <text class="form-label">借用区域</text>
+      <view class="time-row">
+        <text class="form-label">场地</text>
+        <view class="form-input"></view>
+        <text class="form-label">编号</text>
+        <view class="form-input"></view>
+      </view>
+    </view>
+
+    <!-- 项目编号 -->
+    <view class="form-item">
+      <text class="form-label">项目编号</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 指导老师 -->
+    <view class="form-item">
+      <text class="form-label">指导老师</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 指导老师联系方式 -->
+    <view class="form-item">
+      <text class="form-label">指导老师联系方式</text>
+      <view class="form-input"></view>
+    </view>
+
+    <!-- 时间选择器组 -->
+    <!-- 举办时间 -->
+    <view class="time-group">
+      <text class="form-label">起借时间</text>
+      <view class="time-row">
+        <view class="form-input"></view>
+        <text class="form-label">年</text>
+        <view class="form-input"></view>
+        <text class="form-label">月</text>
+        <view class="form-input"></view>
+        <text class="form-label">日</text>
+      </view>
+    </view>
+
+    <!-- 结束时间 -->
+    <view class="time-group">
+      <text class="form-label">归还时间</text>
+      <view class="time-row">
+        <view class="form-input"></view>
+        <text class="form-label">年</text>
+        <view class="form-input"></view>
+        <text class="form-label">月</text>
+        <view class="form-input"></view>
+        <text class="form-label">日</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="reply-container">
+    <textarea class="form-input {{isLinkFocused ? 'focused' : ''}}" bindtap = "onLinkFocused" bindblur = "onLinkBlur" placeholder="若打回，请输入理由（不超过150字）" data-field="link" maxlength="150" ></textarea>
+    <view class="reply-buttons">
+      <button class="submit-btn" bindtap="onSubmit">通过</button>
+      <button class="submit-btn" bindtap="onSubmit">打回</button>
+    </view>
+  </view>
+  
+  
+</view>

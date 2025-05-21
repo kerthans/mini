@@ -1,6 +1,6 @@
 {
   "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "projectname": "mini",
+  "projectname": "makershub_front",
   "setting": {
     "compileHotReLoad": true,
     "skylineRenderEnable": false,
@@ -24,15 +24,85 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/me/me",
-          "pathName": "pages/me/me",
+          "name": "pages/site_borrow_permit/site_borrow_permit",
+          "pathName": "pages/site_borrow_permit/site_borrow_permit",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
-          "name": "pages/object_borrow/object_borrow",
-          "pathName": "pages/object_borrow/object_borrow",
+          "name": "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
+          "pathName": "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/activity_submit/activity_submit",
+          "pathName": "pages/activity_submit/activity_submit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
+          "pathName": "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/editPage/editPage",
+          "pathName": "pages/editPage/editPage",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/club_work/club_work",
+          "pathName": "pages/club_work/club_work",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/base_management_work_page/base_management_work_page",
+          "pathName": "pages/base_management_work_page/base_management_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
+          "pathName": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/project_work_page/project_work_page",
+          "pathName": "pages/project_work_page/project_work_page",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/club_work/club_work",
+          "pathName": "pages/club_work/club_work",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -45,8 +115,8 @@
           "scene": null
         },
         {
-          "name": "pages/publicity_work_page/publicity_work_page",
-          "pathName": "pages/publicity_work_page/publicity_work_page",
+          "name": "pages/me/me",
+          "pathName": "pages/me/me",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -85,7 +155,14 @@
           "query": "",
           "launchMode": "default",
           "scene": null
-        }
+        },
+        {
+          "name": "pages/object_borrow/object_borrow",
+          "pathName": "pages/object_borrow/object_borrow",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
       ]
     }
   }

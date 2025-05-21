@@ -1,12 +1,24 @@
-// components/auth-modal/auth-modal.js
+// pages/personal_stuff_borrow_permit.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    isLinkFocus: false,
   },
+
+  onLinkFocused : function() {
+    this.setData({
+      isLinkFocused: true
+    });
+  },
+
+  onLinkBlur : function() {
+    this.setData({
+      isLinkFocused: false
+    });
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

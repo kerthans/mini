@@ -1,4 +1,6 @@
 // pages/activity/activity.js
+const token = wx.getStorageSync('auth_token');
+
 Page({
   data: {
     // 初始化格式化的时间对象
@@ -267,9 +269,12 @@ Page({
     
       // 发送请求
       wx.request({
-        url: 'https://your-backend-api.com/save',
+        url: config.activity_submit,
         method: 'POST',
-        header: { 'Content-Type': 'application/json' },
+        header: {
+          'Authorization': `Bearer ${token}`,
+          'content-type': 'application/json'
+        },
         data: postData,
         success(res) {
           if (res.statusCode === 200) {

@@ -1,5 +1,7 @@
 // utils/api.js (建议的独立接口文件路径)
 // const app = getApp()
+const authToken = wx.getStorageSync('auth_token')
+
 
 /**
  * 通用用户数据获取方法
@@ -9,7 +11,6 @@
  */
 function fetchUserData(page, successCallback, failCallback) {
   // 统一凭证校验
-  const authToken = wx.getStorageSync('auth_token')
   if (!authToken) {
     wx.showToast({ title: '请重新登录', icon: 'none' })
     wx.redirectTo({ url: '/pages/login/login' })
@@ -19,7 +20,7 @@ function fetchUserData(page, successCallback, failCallback) {
   wx.showLoading({ title: '加载中...' })
 
   wx.request({
-    url: 'https://mini.makershub.top/api/users/profile',
+    url: config.profile_url,
     header: {
       "Authorization": `Bearer ${authToken}`,
       "Content-Type": "application/json"
@@ -30,11 +31,11 @@ function fetchUserData(page, successCallback, failCallback) {
       
       if (res.statusCode === 200 && res.data.code === 200) {
         // 通用数据处理
-        const { username, phone_num, score, role } = res.data.data
+        const { real_name, phone_num, score, role } = res.data.data
         
         // 自动更新页面数据
         page.setData({
-          'userInfo.username': username,
+          'userInfo.username': real_name,
           'userInfo.phone_num': phone_num,
           'userInfo.score': score,
           'userInfo.role': role

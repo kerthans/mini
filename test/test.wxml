@@ -1,0 +1,19 @@
+<!-- test.wxml -->
+<view class="container">
+  <button type="primary" bindtap="healthCheck">健康测试（/healthy）</button>
+  <button type="primary" bindtap="basicCheck" style="margin-top: 20rpx;">基础测试（/）</button>
+
+  <view class="result-box" wx:if="{{healthData}}">
+    <text class="title">健康测试结果：</text>
+    <scroll-view scroll-y class="result-content">
+      {{healthData}}
+    </scroll-view>
+  </view>
+
+  <view class="result-box" wx:if="{{basicData}}">
+    <text class="title">基础测试结果：</text>
+    <scroll-view scroll-y class="result-content">
+      {{basicData}}
+    </scroll-view>
+  </view>
+</view>

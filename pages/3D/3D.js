@@ -206,10 +206,11 @@ Page({
     // 提交表单
     this.setData({ loading: true });
     wx.request({
-      url: 'https://your-server.com/api/3d_print/apply', // 替换为实际的API地址
+      url: 'config.apply_3d', // 替换为实际的API地址
       method: 'POST',
       data: formData,
       header: {
+        'Authorization': `Bearer ${token}`,
         'content-type': 'application/json'
       },
       success: (res) => {
