@@ -11,8 +11,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/personal_stuff_borrow_apply/personal_stuff_borrow_apply",
-          "pathName": "pages/personal_stuff_borrow_apply/personal_stuff_borrow_apply",
+          "name": "pages/site_borrow_list/site_borrow_list",
+          "pathName": "pages/site_borrow_list/site_borrow_list",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -32,8 +32,15 @@
           "scene": null
         },
         {
-          "name": "pages/field_borrow/field_borrow",
-          "pathName": "pages/field_borrow/field_borrow",
+          "name": "pages/remote_control/remote_control",
+          "pathName": "pages/remote_control/remote_control",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/object_borrow/object_borrow",
+          "pathName": "pages/object_borrow/object_borrow",
           "query": "",
           "launchMode": "default",
           "scene": null
