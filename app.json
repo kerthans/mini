@@ -17,7 +17,8 @@
     "pages/activitydetail/activitydetail",
     "pages/activity_list/activity_list",
     "pages/test/test",
-    "components/auth-modal/auth-modal"
+    "components/auth-modal/auth-modal",
+    "pages/stuff_borrow/stuff_borrow"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,9 +27,7 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "usingComponents": {
-    
-  },
+  "usingComponents": {},
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

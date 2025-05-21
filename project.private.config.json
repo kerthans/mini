@@ -11,6 +11,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/stuff_borrow/stuff_borrow",
+          "pathName": "pages/stuff_borrow/stuff_borrow",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/test/test",
           "pathName": "pages/test/test",
           "query": "",

@@ -2,7 +2,7 @@ const api = require('../../API/me.js')
 
 Page({
   data: {
-    isAssociationMember:0, // 判断是否是协会成员
+    isAssociationMember:2, // 判断是否是协会成员
     textToCopy: '这是要复制的文本',//用于复制的文本
     userInfo: {
       avatar: '', // 头像
@@ -112,7 +112,8 @@ Page({
   // 封装页面跳转函数
   navigateToPage: function (url) {
     wx.navigateTo({
-      url: url + '?avatar=' + avatar + '&real_name=' + real_name + '&phone_name=' + phone_num,
+      url: url ,
+      // + '?avatar=' + avatar + '&real_name=' + real_name + '&phone_name=' + phone_num,
       fail: () => {
         wx.showToast({
           title: '页面跳转失败',
