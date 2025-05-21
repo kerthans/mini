@@ -49,14 +49,14 @@
         mode="selector" 
         range="{{hours}}" 
         bindchange="onHourChange"
-        data-type="deadline">  <!-- 新增 -->
+        data-type="deadline"> 
         <view>{{selectedHour || '小时'}}</view>
       </picker>
       <picker 
         mode="selector" 
         range="{{minutes}}" 
         bindchange="onMinuteChange"
-        data-type="deadline">  <!-- 新增 -->
+        data-type="deadline"> 
         <view>{{selectedMinute || '分钟'}}</view>
       </picker>
     </view>

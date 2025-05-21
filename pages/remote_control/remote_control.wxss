@@ -43,23 +43,21 @@
 .control-row {
   display: flex;
   align-items: center;
-  justify-content: center; /* ❗改成 center，让图标和按钮居中 */
-  gap: 15rpx;
+  justify-content: center;
   margin-top: 20rpx;
 }
 
 .icon {
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 30rpx;
-  padding: 12rpx;
-  box-sizing: border-box;
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;  /* 缩小图标和“门”的间距 */
 }
 
-.word{
+.word {
+  font-size: 28rpx;
+  margin-right: 25rpx;  /* 增大“门”和按钮的间距 */
   color: #ffffff;
 }
-
 .open-btn {
   background-color: white;
   color: #00bfc9;
