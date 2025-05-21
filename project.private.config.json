@@ -14,8 +14,22 @@
           "name": "pages/remote_control/remote_control",
           "pathName": "pages/remote_control/remote_control",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/object_borrow/object_borrow",
+          "pathName": "pages/object_borrow/object_borrow",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/remote_control/remote_control",
+          "pathName": "pages/remote_control/remote_control",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/field_borrow/field_borrow",
