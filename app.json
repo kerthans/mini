@@ -18,7 +18,7 @@
     "pages/activity_list/activity_list",
     "pages/test/test",
     "components/auth-modal/auth-modal",
-    "pages/stuff_borrow/stuff_borrow",
+    "pages/team_stuff_borrow_apply/team_stuff_borrow_apply",
     "pages/personal_stuff_borrow_permit/personal_stuff_borrow_permit",
     "pages/team_stuff_borrow_permit/team_stuff_borrow_permit",
     "pages/site_borrow_permit/site_borrow_permit",
