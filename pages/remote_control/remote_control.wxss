@@ -57,6 +57,7 @@
   font-size: 28rpx;
   margin-right: 25rpx;  /* 增大“门”和按钮的间距 */
   color: #ffffff;
+  font-weight: 600;
 }
 .open-btn {
   background-color: white;
