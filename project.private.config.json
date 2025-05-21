@@ -11,11 +11,18 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/object_borrow/object_borrow",
-          "pathName": "pages/object_borrow/object_borrow",
+          "name": "pages/field_borrow/field_borrow",
+          "pathName": "pages/field_borrow/field_borrow",
           "query": "",
           "scene": null,
           "launchMode": "default"
+        },
+        {
+          "name": "pages/object_borrow/object_borrow",
+          "pathName": "pages/object_borrow/object_borrow",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "pages/site_borrow_permit/site_borrow_permit",
