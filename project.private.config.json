@@ -4,43 +4,35 @@
   "setting": {
     "compileHotReLoad": true,
     "skylineRenderEnable": false,
-    "urlCheck": false
+    "urlCheck": false,
+    "coverView": true,
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "autoAudits": false,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "showShadowRootInWxmlPanel": true,
+    "useStaticServer": false,
+    "useLanDebug": false,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
+    "ignoreDevUnusedFiles": true,
+    "bigPackageSizeSupport": false
   },
-  "libVersion": "trial",
+  "libVersion": "3.8.5",
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "pages/base_management_work_page/base_management_work_page",
-          "pathName": "pages/base_management_work_page/base_management_work_page",
+          "name": "pages/me/me",
+          "pathName": "pages/me/me",
           "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
-          "name": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
-          "pathName": "pages/operation_maintenance_work_page/operation_maintenance_work_page",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/project_work_page/project_work_page",
-          "pathName": "pages/project_work_page/project_work_page",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/publicity_work_page/publicity_work_page",
-          "pathName": "pages/publicity_work_page/publicity_work_page",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
+          "name": "pages/object_borrow/object_borrow",
+          "pathName": "pages/object_borrow/object_borrow",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -53,8 +45,8 @@
           "scene": null
         },
         {
-          "name": "pages/me/me",
-          "pathName": "pages/me/me",
+          "name": "pages/publicity_work_page/publicity_work_page",
+          "pathName": "pages/publicity_work_page/publicity_work_page",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -67,8 +59,29 @@
           "scene": null
         },
         {
+          "name": "pages/activity_submit/activity_submit",
+          "pathName": "pages/activity_submit/activity_submit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/task/task",
+          "pathName": "pages/task/task",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/activity_list/activity_list",
           "pathName": "pages/activity_list/activity_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/MyPoints/MyPoints",
+          "pathName": "pages/MyPoints/MyPoints",
           "query": "",
           "launchMode": "default",
           "scene": null

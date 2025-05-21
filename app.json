@@ -16,7 +16,8 @@
     "pages/MyPoints/MyPoints",
     "pages/activitydetail/activitydetail",
     "pages/activity_list/activity_list",
-    "components/auth-modal/auth-modal"
+    "components/auth-modal/auth-modal",
+    "pages/object_borrow/object_borrow"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,9 +26,7 @@
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
-  "usingComponents": {
-    
-  },
+  "usingComponents": {},
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
